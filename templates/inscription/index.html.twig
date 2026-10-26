@@ -30,7 +30,7 @@
             </div>
         </section>
 
-        <section class="login-card" aria-labelledby="register-title">
+        <section class="login-card register-card" aria-labelledby="register-title">
             <div class="login-card-heading">
                 <p class="eyebrow">ESPACE CLIENT</p>
                 <h2 id="register-title">Créer un compte</h2>
@@ -38,12 +38,12 @@
             </div>
 
             <div class="login-form-placeholder">
-                {{ form_start(form) }}
-                {{ form_row(form.nom) }}
-                {{ form_row(form.prenom) }}
-                {{ form_row(form.email) }}
-                {{ form_row(form.motDePasse) }}
-                {{ form_row(form.submit) }}
+                {{ form_start(form, {attr: {class: 'login-form register-form'}}) }}
+                {{ form_row(form.nom, {row_attr: {class: 'register-field'}}) }}
+                {{ form_row(form.prenom, {row_attr: {class: 'register-field'}}) }}
+                {{ form_row(form.email, {row_attr: {class: 'register-field register-field-wide'}}) }}
+                {{ form_row(form.motDePasse, {row_attr: {class: 'register-field register-field-wide'}}) }}
+                {{ form_row(form.submit, {row_attr: {class: 'register-submit'}}) }}
                 {{ form_end(form) }}
             </div>
 

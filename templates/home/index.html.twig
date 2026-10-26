@@ -3,31 +3,48 @@
 {% block title %}WorkTogether — Votre infrastructure, en toute sérénité{% endblock %}
 
 {% block body %}
-    <header class="site-header">
-        <nav class="navigation" aria-label="Navigation principale">
+    <div class="home-shell">
+        <aside class="home-sidebar" aria-label="Navigation secondaire">
             <a class="brand" href="{{ path('app_home') }}" aria-label="WorkTogether, accueil">
                 <span class="brand-mark" aria-hidden="true">W</span>
                 <span>WorkTogether</span>
             </a>
 
-            <div class="nav-links">
-                <a class="nav-login" href="{{ path('app_baies') }}">Mes baies</a>
-                <a class="nav-register" href="{{ path('app_unites') }}">Mes unités</a>
-                <a href="#services">Nos services</a>
-                <a href="#engagements">Nos engagements</a>
-                {% if app.user %}
-                    <a class="nav-login" href="{{ logout_path() }}">Déconnexion</a>
-                {% else %}
-                    <a class="nav-login" href="{{ path('app_connexion') }}">Connexion</a>
-                    <a class="nav-register" href="{{ path('app_inscription') }}">Inscription</a>
-                {% endif %}
-                <a class="nav-cta" href="#contact">Parlons de votre projet <span aria-hidden="true">↗</span></a>
+            <div class="sidebar-title">
+                <p>Votre partenaire</p>
+                <h2>Infrastructure<br>en toute sérénité</h2>
             </div>
-        </nav>
-    </header>
 
-    <main>
-        <section class="hero">
+            <nav class="sidebar-nav" aria-label="Navigation de la page">
+                <p class="sidebar-nav-title">Découvrir</p>
+                <a class="sidebar-link sidebar-link-active" href="#home">Accueil</a>
+                <a class="sidebar-link" href="#engagements">À propos</a>
+                <a class="sidebar-link" href="#contact">Nous contacter</a>
+            </nav>
+
+            <p class="sidebar-note">La technologie, en mieux.</p>
+        </aside>
+
+        <div class="home-main">
+            <header class="site-header">
+                <nav class="navigation home-navigation" aria-label="Navigation principale">
+                    <div class="nav-links home-nav-links">
+                        <a href="#services">Nos offres</a>
+                        {% if app.user %}
+                            <a href="{{ path('app_baies') }}">Mes baies</a>
+                            <a href="{{ path('app_unites') }}">Mes unités</a>
+                            <a href=" {{ path('app_profil') }}">Mon profil</a>
+                            <a class="nav-login" href="{{ logout_path() }}">Déconnexion</a>
+                        {% else %}
+                            <a class="nav-login" href="{{ path('app_connexion') }}">Connexion</a>
+                            <a class="nav-register" href="{{ path('app_inscription') }}">Inscription</a>
+                        {% endif %}
+                    </div>
+                </nav>
+            </header>
+
+    <main class="home-content">
+        <section class="hero" id="home">
             <div class="hero-content">
                 <p class="eyebrow"><span class="eyebrow-dot"></span> L'infrastructure qui vous accompagne</p>
                 <h1>Votre informatique.<br><span>En toute sérénité.</span></h1>
@@ -71,6 +88,21 @@
                     <span><strong>Tout est sous contrôle</strong><small>Une équipe à vos côtés</small></span>
                 </div>
                 <span class="visual-caption">LA TECHNOLOGIE, EN MIEUX.</span>
+            </div>
+        </section>
+
+        <section class="featured-offer section-shell" aria-labelledby="featured-offer-title">
+            <div class="featured-offer-copy">
+                <p class="eyebrow">À DÉCOUVRIR</p>
+                <h2 id="featured-offer-title">L'hébergement qui vous simplifie la vie.</h2>
+                <p>Des espaces et des équipements adaptés pour héberger vos serveurs en toute confiance.</p>
+                <a class="button button-primary" href="#services">Découvrir nos offres <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="featured-offer-art" aria-hidden="true">
+                <span class="offer-art-orbit offer-art-orbit-one"></span>
+                <span class="offer-art-orbit offer-art-orbit-two"></span>
+                <span class="offer-art-rack"><i></i><i></i><i></i></span>
+                <span class="offer-art-label">HÉBERGEMENT SÉCURISÉ</span>
             </div>
         </section>
 
@@ -142,4 +174,6 @@
         <p>La technologie, en mieux.</p>
         <span>© {{ "now"|date("Y") }} WorkTogether</span>
     </footer>
+        </div>
+    </div>
 {% endblock %}
