@@ -36,8 +36,8 @@ final class AppFixtures extends Fixture
             ->setNom('Martin')
             ->setPrenom('Camille')
             ->setEmail('camille.martin@example.test')
-            ->setMotDePasse(password_hash('ChangeMe123!', PASSWORD_DEFAULT))
-            ->setDateCreation(new \DateTime());
+            ->setPassword(password_hash('ChangeMe123!', PASSWORD_DEFAULT))
+            ->setDateCreation(new \DateTimeImmutable());
         $manager->persist($utilisateur);
 
         $offres = [

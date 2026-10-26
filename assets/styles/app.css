@@ -757,6 +757,54 @@ h2 {
     min-height: 190px;
 }
 
+.login-form {
+    display: grid;
+    gap: 9px;
+}
+
+.login-form label {
+    color: #34483b;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.login-form input:not([type="hidden"]) {
+    width: 100%;
+    min-height: 42px;
+    margin-bottom: 9px;
+    padding: 10px 12px;
+    border: 1px solid #dce5de;
+    border-radius: 6px;
+    color: #26372d;
+    font: inherit;
+}
+
+.login-form button {
+    min-height: 44px;
+    margin-top: 5px;
+    border: 0;
+    border-radius: 6px;
+    background: #267854;
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background: #1e6445;
+}
+
+.login-error {
+    margin: 0 0 16px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: #fff0ef;
+    color: #a52c24;
+    font-size: 12px;
+}
+
 .login-help {
     margin: 0;
     padding-top: 18px;
