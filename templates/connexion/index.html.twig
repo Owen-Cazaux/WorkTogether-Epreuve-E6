@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion — WorkTogether{% endblock %}
+
+{% block body %}
+    <header class="login-header">
+        <a class="brand" href="{{ path('app_home') }}" aria-label="WorkTogether, accueil">
+            <span class="brand-mark" aria-hidden="true">W</span>
+            <span>WorkTogether</span>
+        </a>
+        <a class="login-back-link" href="{{ path('app_home') }}">← Retour à l'accueil</a>
+    </header>
+
+    <main class="login-page">
+        <section class="login-intro">
+            <p class="eyebrow"><span class="eyebrow-dot"></span> Votre espace WorkTogether</p>
+            <h1>Ravi de vous<br><span>revoir.</span></h1>
+            <p class="login-intro-copy">
+                Retrouvez votre espace et poursuivez la gestion de vos services en toute simplicité.
+            </p>
+            <div class="login-benefit">
+                <span class="note-icon" aria-hidden="true">✓</span>
+                <span>Votre infrastructure, toujours à portée de main.</span>
+            </div>
+            <div class="login-decoration" aria-hidden="true">
+                <span class="decoration-ring ring-small"></span>
+                <span class="decoration-ring ring-large"></span>
+                <span class="decoration-dot"></span>
+                <span class="decoration-label">WORK TOGETHER</span>
+            </div>
+        </section>
+
+        <section class="login-card" aria-labelledby="login-title">
+            <div class="login-card-heading">
+                <p class="eyebrow">ESPACE CLIENT</p>
+                <h2 id="login-title">Connexion</h2>
+                <p>Connectez-vous à votre compte WorkTogether.</p>
+            </div>
+
+            <div class="login-form-placeholder" aria-label="Emplacement réservé au formulaire de connexion"></div>
+
+            <p class="login-help">Besoin d'aide ? <a href="{{ path('app_home') }}">Contactez notre équipe</a></p>
+        </section>
+    </main>
+
+    <footer class="login-footer">
+        <span>© {{ "now"|date("Y") }} WorkTogether</span>
+        <span>La technologie, en mieux.</span>
+    </footer>
+{% endblock %}

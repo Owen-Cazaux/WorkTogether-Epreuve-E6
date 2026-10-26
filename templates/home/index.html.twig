@@ -1,0 +1,139 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}WorkTogether — Votre infrastructure, en toute sérénité{% endblock %}
+
+{% block body %}
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navigation principale">
+            <a class="brand" href="{{ path('app_home') }}" aria-label="WorkTogether, accueil">
+                <span class="brand-mark" aria-hidden="true">W</span>
+                <span>WorkTogether</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#services">Nos services</a>
+                <a href="#engagements">Nos engagements</a>
+                <a class="nav-login" href="{{ path('app_connexion') }}">Connexion</a>
+                <a class="nav-register" href="{{ path('app_inscription') }}">Inscription</a>
+                <a class="nav-cta" href="#contact">Parlons de votre projet <span aria-hidden="true">↗</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="eyebrow"><span class="eyebrow-dot"></span> L'infrastructure qui vous accompagne</p>
+                <h1>Votre informatique.<br><span>En toute sérénité.</span></h1>
+                <p class="hero-description">
+                    Hébergement, équipements et accompagnement technique :
+                    nous aidons votre entreprise à avancer avec une infrastructure fiable.
+                </p>
+                <div class="hero-actions">
+                    <a class="button button-primary" href="#services">Découvrir nos services <span aria-hidden="true">→</span></a>
+                    <a class="text-link" href="#contact">Échangeons ensemble <span aria-hidden="true">↗</span></a>
+                </div>
+                <div class="hero-note">
+                    <span class="note-icon" aria-hidden="true">✓</span>
+                    Un accompagnement humain, adapté à vos besoins
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-label="Illustration d'une infrastructure informatique">
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="visual-glow"></div>
+                <div class="server-stack">
+                    <div class="server-unit">
+                        <span class="server-icon" aria-hidden="true">⌘</span>
+                        <span class="server-lines"><i></i><i></i></span>
+                        <span class="status-light"></span>
+                    </div>
+                    <div class="server-unit">
+                        <span class="server-icon" aria-hidden="true">▤</span>
+                        <span class="server-lines"><i></i><i></i></span>
+                        <span class="status-light"></span>
+                    </div>
+                    <div class="server-unit">
+                        <span class="server-icon" aria-hidden="true">◈</span>
+                        <span class="server-lines"><i></i><i></i></span>
+                        <span class="status-light"></span>
+                    </div>
+                </div>
+                <div class="floating-card">
+                    <span class="floating-check" aria-hidden="true">✓</span>
+                    <span><strong>Tout est sous contrôle</strong><small>Une équipe à vos côtés</small></span>
+                </div>
+                <span class="visual-caption">LA TECHNOLOGIE, EN MIEUX.</span>
+            </div>
+        </section>
+
+        <section class="services section-shell" id="services">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CE QU'ON FAIT POUR VOUS</p>
+                    <h2>La bonne solution,<br>au bon moment.</h2>
+                </div>
+                <p class="section-intro">
+                    Les bons outils et les bonnes personnes pour vous aider à gérer
+                    votre infrastructure au quotidien.
+                </p>
+            </div>
+
+            <div class="service-grid">
+                <article class="service-card">
+                    <span class="service-number">01</span>
+                    <span class="service-icon" aria-hidden="true">▦</span>
+                    <h3>Hébergement &amp; baies</h3>
+                    <p>Des espaces et des équipements adaptés pour héberger vos serveurs en toute confiance.</p>
+                    <a href="#contact" aria-label="En savoir plus sur l'hébergement et les baies">En savoir plus <span aria-hidden="true">→</span></a>
+                </article>
+                <article class="service-card">
+                    <span class="service-number">02</span>
+                    <span class="service-icon" aria-hidden="true">⌁</span>
+                    <h3>Équipements &amp; unités</h3>
+                    <p>Des ressources adaptées à votre activité et une gestion claire de vos équipements.</p>
+                    <a href="#contact" aria-label="En savoir plus sur les équipements et unités">En savoir plus <span aria-hidden="true">→</span></a>
+                </article>
+                <article class="service-card">
+                    <span class="service-number">03</span>
+                    <span class="service-icon" aria-hidden="true">↗</span>
+                    <h3>Interventions techniques</h3>
+                    <p>Une équipe technique pour vous accompagner dans l'installation et la maintenance.</p>
+                    <a href="#contact" aria-label="En savoir plus sur les interventions techniques">En savoir plus <span aria-hidden="true">→</span></a>
+                </article>
+            </div>
+        </section>
+
+        <section class="commitment" id="engagements">
+            <div class="commitment-inner">
+                <div>
+                    <p class="eyebrow eyebrow-light">LE PARTENAIRE QUI VOUS SIMPLIFIE LA VIE</p>
+                    <h2>La technologie doit<br>vous faire avancer.</h2>
+                </div>
+                <p>
+                    Chez WorkTogether, nous croyons qu'une bonne infrastructure commence
+                    par une bonne écoute. Parlons de vos besoins et construisons une
+                    solution qui vous ressemble.
+                </p>
+                <a class="button button-light" href="#contact">Parlons de votre projet <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+
+        <section class="contact section-shell" id="contact">
+            <p class="eyebrow">VOTRE PROJET, VOS BESOINS</p>
+            <h2>Prêt à passer à la suite ?</h2>
+            <p>Découvrez les services WorkTogether et trouvez l'accompagnement adapté à votre infrastructure.</p>
+            <a class="button button-primary" href="#services">Découvrir nos services <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <a class="brand brand-footer" href="{{ path('app_home') }}">
+            <span class="brand-mark" aria-hidden="true">W</span>
+            <span>WorkTogether</span>
+        </a>
+        <p>La technologie, en mieux.</p>
+        <span>© {{ "now"|date("Y") }} WorkTogether</span>
+    </footer>
+{% endblock %}
