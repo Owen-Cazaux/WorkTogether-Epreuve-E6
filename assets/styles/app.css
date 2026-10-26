@@ -108,6 +108,124 @@ a {
     color: #fff;
 }
 
+.inventory-page {
+    min-height: calc(100vh - 86px);
+    padding-top: 64px;
+    padding-bottom: 80px;
+}
+
+.inventory-page h1 {
+    margin-bottom: 12px;
+}
+
+.inventory-intro {
+    margin-bottom: 30px;
+    color: #63716b;
+    line-height: 1.7;
+}
+
+.inventory-tab {
+    padding: 10px 13px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+}
+
+.inventory-tab-active {
+    border-color: #dce5df;
+    background: #fff;
+    color: #126b52;
+}
+
+.inventory-empty,
+.inventory-card,
+.inventory-table-wrapper {
+    border: 1px solid #e4ebe5;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 12px 35px rgba(32, 70, 43, 0.04);
+}
+
+.inventory-empty {
+    padding: 24px;
+    color: #63716b;
+}
+
+.inventory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.inventory-card {
+    padding: 24px;
+}
+
+.inventory-card-label {
+    margin-bottom: 9px;
+    color: #28775e;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.inventory-card h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.inventory-card > p:last-of-type {
+    margin-bottom: 0;
+    color: #63716b;
+    font-size: 13px;
+}
+
+.inventory-unit-list {
+    display: grid;
+    gap: 8px;
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.inventory-unit-list li {
+    padding-top: 8px;
+    border-top: 1px solid #edf0ed;
+    color: #34483b;
+    font-size: 13px;
+}
+
+.inventory-table-wrapper {
+    overflow-x: auto;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.inventory-table th,
+.inventory-table td {
+    padding: 15px 18px;
+    border-bottom: 1px solid #edf0ed;
+}
+
+.inventory-table th {
+    color: #63716b;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.inventory-table td {
+    color: #34483b;
+    font-size: 13px;
+}
+
+.inventory-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
 .nav-cta span {
     margin-left: 7px;
 }

@@ -1,20 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BaiesController!{% endblock %}
+{% block title %}Mes baies — WorkTogether{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navigation principale">
+            <a class="brand" href="{{ path('app_home') }}" aria-label="WorkTogether, accueil">
+                <span class="brand-mark" aria-hidden="true">W</span>
+                <span>WorkTogether</span>
+            </a>
+            <div class="nav-links">
+                <a class="inventory-tab inventory-tab-active" href="{{ path('app_baies') }}" aria-current="page">Mes baies</a>
+                <a class="inventory-tab" href="{{ path('app_unites') }}">Mes unités</a>
+                {% if app.user %}
+                    <a class="nav-login" href="{{ logout_path() }}">Déconnexion</a>
+                {% else %}
+                    <a class="nav-login" href="{{ path('app_connexion') }}">Connexion</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <main class="inventory-page section-shell">
+        <p class="eyebrow">VOTRE INFRASTRUCTURE</p>
+        <h1>Mes baies</h1>
+        <p class="inventory-intro">Retrouvez les baies et les unités qui y sont installées.</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/dev/WorkTogether-Epreuve-E6/src/Controller/BaiesController.php</code></li>
-        <li>Your template at <code>C:/dev/WorkTogether-Epreuve-E6/templates/baies/index.html.twig</code></li>
-    </ul>
-</div>
+        {% if baies is empty %}
+            <p class="inventory-empty">Aucune baie n'est disponible pour le moment.</p>
+        {% else %}
+            <div class="inventory-grid">
+                {% for baie in baies %}
+                    <article class="inventory-card">
+                        <p class="inventory-card-label">BAIE</p>
+                        <h2>{{ baie.numero }}</h2>
+                        <p>{{ baie.unites|length }} unité(s) installée(s) sur {{ baie.nombreUnités }} emplacement(s).</p>
+                        {% if baie.unites is not empty %}
+                            <ul class="inventory-unit-list">
+                                {% for unite in baie.unites %}
+                                    <li>{{ unite.nom }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </article>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </main>
 {% endblock %}

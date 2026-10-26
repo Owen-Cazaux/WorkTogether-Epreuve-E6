@@ -1,20 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UnitesController!{% endblock %}
+{% block title %}Mes unités — WorkTogether{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navigation principale">
+            <a class="brand" href="{{ path('app_home') }}" aria-label="WorkTogether, accueil">
+                <span class="brand-mark" aria-hidden="true">W</span>
+                <span>WorkTogether</span>
+            </a>
+            <div class="nav-links">
+                <a class="inventory-tab" href="{{ path('app_baies') }}">Mes baies</a>
+                <a class="inventory-tab inventory-tab-active" href="{{ path('app_unites') }}" aria-current="page">Mes unités</a>
+                {% if app.user %}
+                    <a class="nav-login" href="{{ logout_path() }}">Déconnexion</a>
+                {% else %}
+                    <a class="nav-login" href="{{ path('app_connexion') }}">Connexion</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <main class="inventory-page section-shell">
+        <p class="eyebrow">VOTRE INFRASTRUCTURE</p>
+        <h1>Mes unités</h1>
+        <p class="inventory-intro">Consultez les équipements et leur état actuel.</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/dev/WorkTogether-Epreuve-E6/src/Controller/UnitesController.php</code></li>
-        <li>Your template at <code>C:/dev/WorkTogether-Epreuve-E6/templates/unites/index.html.twig</code></li>
-    </ul>
-</div>
+        {% if unites is empty %}
+            <p class="inventory-empty">Aucune unité n'est disponible pour le moment.</p>
+        {% else %}
+            <div class="inventory-table-wrapper">
+                <table class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Unité</th>
+                            <th scope="col">Baie</th>
+                            <th scope="col">État</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for unite in unites %}
+                            <tr>
+                                <td>{{ unite.nom }}</td>
+                                <td>{{ unite.baie ? unite.baie.numero : 'Non affectée' }}</td>
+                                <td>{{ unite.etat ? unite.etat.libelle : 'Non renseigné' }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+    </main>
 {% endblock %}
