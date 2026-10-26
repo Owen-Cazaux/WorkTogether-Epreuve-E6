@@ -15,5 +15,6 @@ final class AdministrateurFixtures extends Fixture
         $administrateur = new Administrateur();
         $manager->persist($administrateur);
         $this->addReference(self::REFERENCE, $administrateur);
+        $manager->flush();
     }
 }

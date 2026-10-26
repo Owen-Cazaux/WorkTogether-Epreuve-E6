@@ -16,6 +16,7 @@ final class RoleFixtures extends Fixture implements DependentFixtureInterface
             ->setNom('Administrateur')
             ->setAdministrateur($this->getReference(AdministrateurFixtures::REFERENCE, Administrateur::class));
         $manager->persist($role);
+        $manager->flush();
     }
 
     public function getDependencies(): array

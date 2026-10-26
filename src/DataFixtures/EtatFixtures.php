@@ -23,5 +23,7 @@ final class EtatFixtures extends Fixture
             $manager->persist($etat);
             $this->addReference($reference, $etat);
         }
+
+        $manager->flush();
     }
 }

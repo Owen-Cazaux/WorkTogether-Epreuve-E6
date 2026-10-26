@@ -17,5 +17,6 @@ final class UtilisateurFixtures extends Fixture
             ->setPassword(password_hash('ChangeMe123!', PASSWORD_DEFAULT))
             ->setDateCreation(new \DateTimeImmutable());
         $manager->persist($utilisateur);
+        $manager->flush();
     }
 }

@@ -27,5 +27,7 @@ final class ClientFixtures extends Fixture
             $manager->persist($client);
             $this->addReference($reference, $client);
         }
+
+        $manager->flush();
     }
 }

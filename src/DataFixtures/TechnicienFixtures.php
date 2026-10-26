@@ -23,5 +23,7 @@ final class TechnicienFixtures extends Fixture
             $manager->persist($technicien);
             $this->addReference($reference, $technicien);
         }
+
+        $manager->flush();
     }
 }

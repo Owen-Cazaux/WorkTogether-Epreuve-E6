@@ -23,5 +23,7 @@ final class BaieFixtures extends Fixture
             $manager->persist($baie);
             $this->addReference($reference, $baie);
         }
+
+        $manager->flush();
     }
 }

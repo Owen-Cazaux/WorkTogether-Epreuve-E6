@@ -25,6 +25,8 @@ final class UniteFixtures extends Fixture implements DependentFixtureInterface
                 ->setBaie($this->getReference($baieReference, Baie::class));
             $manager->persist($unite);
         }
+
+        $manager->flush();
     }
 
     public function getDependencies(): array

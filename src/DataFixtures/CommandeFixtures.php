@@ -23,6 +23,8 @@ final class CommandeFixtures extends Fixture implements DependentFixtureInterfac
                 ->setStatut($statut);
             $manager->persist($commande);
         }
+
+        $manager->flush();
     }
 
     public function getDependencies(): array

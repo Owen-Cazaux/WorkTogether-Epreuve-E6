@@ -24,6 +24,8 @@ final class InterventionFixtures extends Fixture implements DependentFixtureInte
                 ->setDateFin(new \DateTime($dateFin));
             $manager->persist($intervention);
         }
+
+        $manager->flush();
     }
 
     public function getDependencies(): array

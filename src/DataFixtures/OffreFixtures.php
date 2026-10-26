@@ -27,6 +27,8 @@ final class OffreFixtures extends Fixture implements DependentFixtureInterface
                 ->addAdministrateur($administrateur);
             $manager->persist($offre);
         }
+
+        $manager->flush();
     }
 
     public function getDependencies(): array

@@ -11,5 +11,6 @@ final class ComptableFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $manager->persist(new Comptable());
+        $manager->flush();
     }
 }
