@@ -8,21 +8,21 @@ use Doctrine\Persistence\ObjectManager;
 
 final class BaieFixtures extends Fixture
 {
-    public const REFERENCE_BAIE_01 = 'baie-01';
-    public const REFERENCE_BAIE_02 = 'baie-02';
-
+    public const REFERENCE_BAIE1 = 'baie1';
+    
     public function load(ObjectManager $manager): void
     {
-        foreach ([
-            [self::REFERENCE_BAIE_01, 'BAIE-01', 2],
-            [self::REFERENCE_BAIE_02, 'BAIE-02', 2],
-        ] as [$reference, $numero, $nombreUnites]) {
-            $baie = (new Baie())
-                ->setNumero($numero)
-                ->setNombreUnités($nombreUnites);
+        $baies = [
+            [self::REFERENCE_BAIE1, 'B-001', 42]
+        ];
+        foreach ($baies as [$reference, $numero, $nombre]){
+            $baie = new Baie();
+            $baie->setNumero($numero);
+            $baie->setNombreUnités($nombre);
             $manager->persist($baie);
             $this->addReference($reference, $baie);
         }
+
 
         $manager->flush();
     }

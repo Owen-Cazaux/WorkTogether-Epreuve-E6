@@ -14,17 +14,18 @@ final class UniteFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager): void
     {
         foreach ([
-            ['Serveur web', EtatFixtures::REFERENCE_DISPONIBLE, BaieFixtures::REFERENCE_BAIE_01],
-            ['Serveur base de données', EtatFixtures::REFERENCE_MAINTENANCE, BaieFixtures::REFERENCE_BAIE_01],
-            ['Serveur applicatif', EtatFixtures::REFERENCE_DISPONIBLE, BaieFixtures::REFERENCE_BAIE_02],
-            ['Serveur sauvegarde', EtatFixtures::REFERENCE_HORS_SERVICE, BaieFixtures::REFERENCE_BAIE_02],
-        ] as [$nom, $etatReference, $baieReference]) {
-            $unite = (new Unite())
-                ->setNom($nom)
-                ->setEtat($this->getReference($etatReference, Etat::class))
-                ->setBaie($this->getReference($baieReference, Baie::class));
+            [baiefixtures::REFERENCE_BAIE1, 'Unite 1']
+                 ] as [$baiereference, $nom])
+        {
+            $unite = new Unite()
+                ->setBaie($this->getReference($baiereference, Baie::class))
+                ->setNom($nom);
             $manager->persist($unite);
         }
+
+
+
+
 
         $manager->flush();
     }

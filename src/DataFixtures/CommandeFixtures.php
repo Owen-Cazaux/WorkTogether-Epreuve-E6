@@ -12,10 +12,10 @@ final class CommandeFixtures extends Fixture implements DependentFixtureInterfac
 {
     public function load(ObjectManager $manager): void
     {
-        $commande = new Commande();
-        $commande->setDateCommande(new \DateTime());
-        $commande->setMontantTotal(40.00);
-        $commande->setStatut('en attente');
+        $commande = new Commande()
+            ->setDateCommande(new \DateTime())
+            ->setMontantTotal(40.00)
+            ->setStatut('en attente');
         $manager->persist($commande);
         $manager->flush();
     }

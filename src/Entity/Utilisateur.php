@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\UtilisateurRepository;
+use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
+use Doctrine\ORM\Mapping\PrePersist;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -20,6 +23,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 ])]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
 #[UniqueEntity(fields: ['email'], message: 'Cette adresse e-mail est déjà utilisée.')]
+#[HasLifecycleCallbacks]
 class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -54,6 +58,11 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column]
     private ?\DateTimeImmutable $dateCreation = null;
+
+    #[PrePersist]
+    public function applyDateCreation(PrePersistEventArgs $event){
+        $this->dateCreation = new \DateTimeImmutable();
+    }
 
     public function __construct()
     {

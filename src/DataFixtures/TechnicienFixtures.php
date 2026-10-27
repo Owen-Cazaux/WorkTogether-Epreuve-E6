@@ -13,11 +13,13 @@ final class TechnicienFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        foreach ([
+        $techniciens = [
             [self::REFERENCE_ALEX, 'Durand', 'Alex'],
             [self::REFERENCE_SOFIA, 'Bernard', 'Sofia'],
-        ] as [$reference, $nom, $prenom]) {
-            $technicien = (new Technicien())
+        ];
+
+        foreach ($techniciens as [$reference, $nom, $prenom]) {
+            $technicien = new Technicien()
                 ->setNom($nom)
                 ->setPrenom($prenom);
             $manager->persist($technicien);
