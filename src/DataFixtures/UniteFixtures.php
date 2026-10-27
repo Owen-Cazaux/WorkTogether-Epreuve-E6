@@ -11,16 +11,21 @@ use Doctrine\Persistence\ObjectManager;
 
 final class UniteFixtures extends Fixture implements DependentFixtureInterface
 {
+    const   REFERENCE_UNITE1 = 'unite-1';
     public function load(ObjectManager $manager): void
     {
-        foreach ([
-            [baiefixtures::REFERENCE_BAIE1, 'Unite 1']
-                 ] as [$baiereference, $nom])
+
+        $unites = [
+            [self::REFERENCE_UNITE1,BaieFixtures::REFERENCE_BAIE1 , EtatFixtures::REFERENCE_DISPONIBLE ,'unites 1']
+        ];
+        foreach ($unites as [$reference,$baieReference,$etatReference, $nom])
         {
             $unite = new Unite()
-                ->setBaie($this->getReference($baiereference, Baie::class))
+                ->setBaie($this->getReference($baieReference, Baie::class))
+                ->setEtat($this->getReference($etatReference, Etat::class))
                 ->setNom($nom);
             $manager->persist($unite);
+            $this->addReference($reference, $unite);
         }
 
 

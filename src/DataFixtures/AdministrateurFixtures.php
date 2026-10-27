@@ -5,11 +5,15 @@ namespace App\DataFixtures;
 use App\Entity\Administrateur;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 final class AdministrateurFixtures extends Fixture
 {
     public const REFERENCE_ADMIN_1 = 'administrateur_1';
-    public const REFERENCE = 'administrateur';
+    public function __construct(UserPasswordHasherInterface $hasher)
+    {
+        $this->hasher = $hasher;
+    }
 
     public function load(ObjectManager $manager): void
     {
@@ -25,7 +29,7 @@ final class AdministrateurFixtures extends Fixture
                 $password = $this->hasher->hashPassword($administrateur, $plainPassword);
                 $administrateur->setPassword($password);
             $manager->persist($administrateur);
-            $this->addReference(self::REFERENCE, $administrateur);
+            $this->addReference($reference, $administrateur);
         }
 
         $manager->flush();

@@ -10,13 +10,21 @@ use Doctrine\Persistence\ObjectManager;
 
 final class CommandeFixtures extends Fixture implements DependentFixtureInterface
 {
+    public const REFERENCE_COMMANDE1 = 'commande1';
     public function load(ObjectManager $manager): void
     {
-        $commande = new Commande()
-            ->setDateCommande(new \DateTime())
-            ->setMontantTotal(40.00)
-            ->setStatut('en attente');
-        $manager->persist($commande);
+        $commandes = [
+            [self::REFERENCE_COMMANDE1, ClientFixtures::REFERENCES_CAMILLE_MARTIN, 40.00, 'en attente']
+        ];
+        foreach ($commandes as [$reference, $clientReference, $montant, $statut]) {
+            $commande = new Commande()
+                ->setClient($this->getReference($clientReference, client::class))
+                ->setMontantTotal($montant)
+                ->setStatut($statut);
+            $manager->persist($commande);
+            $this->addReference($reference, $commande);
+
+        }
         $manager->flush();
     }
 

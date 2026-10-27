@@ -18,7 +18,7 @@ final class ClientFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $clients = [
-            [self::REFERENCES_CAMILLE_MARTIN, 'Martin', 'Camille', 'camille.martin@example.test', 'ChangeMe123', 'femme','06 08 98 36 72', '500000','Paris', 'Frane']
+            [self::REFERENCES_CAMILLE_MARTIN, 'Martin', 'Camille', 'camille.martin@example.test', 'ChangeMe123', 'femme','06 08 98 36 72','4 rue du roux' , '500000','Paris', 'France']
         ];
 
         foreach ($clients as [$reference, $nom, $prenom, $email, $plainPassword, $raisonSociale, $telephone, $adresse, $codepostal, $ville, $pays]) {
