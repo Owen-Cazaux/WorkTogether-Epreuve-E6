@@ -1,20 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProfilController!{% endblock %}
+{% block title %}Mon profil — WorkTogether{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navigation principale">
+            <a class="brand" href="{{ path('app_home') }}" aria-label="WorkTogether, accueil">
+                <span class="brand-mark" aria-hidden="true">W</span>
+                <span>WorkTogether</span>
+            </a>
+            <div class="nav-links">
+                <a href="{{ path('app_baies') }}">Mes baies</a>
+                <a href="{{ path('app_unites') }}">Mes unités</a>
+                <a class="nav-login" href="{{ logout_path() }}">Déconnexion</a>
+            </div>
+        </nav>
+    </header>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <main class="profile-page section-shell">
+        <p class="eyebrow">VOTRE ESPACE WORKTOGETHER</p>
+        <h1>Mon profil</h1>
+        <p class="inventory-intro">Consultez les informations associées à votre compte.</p>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/dev/WorkTogether-Epreuve-E6/src/Controller/ProfilController.php</code></li>
-        <li>Your template at <code>C:/dev/WorkTogether-Epreuve-E6/templates/profil/index.html.twig</code></li>
-    </ul>
-</div>
+        <section class="profile-card" aria-labelledby="profile-card-title">
+            <div class="profile-card-heading">
+                <span class="profile-avatar" aria-hidden="true">{{ utilisateur.prenom|first ~ utilisateur.nom|first }}</span>
+                <div>
+                    <p class="inventory-card-label">INFORMATIONS PERSONNELLES</p>
+                    <h2 id="profile-card-title">{{ utilisateur.prenom}} {{ utilisateur.nom }}</h2>
+                </div>
+            </div>
+
+            <dl class="profile-details">
+                <div class="profile-detail">
+                    <dt>Prénom</dt>
+                    <dd>{{ utilisateur.prenom }}</dd>
+                </div>
+                <div class="profile-detail">
+                    <dt>Nom</dt>
+                    <dd>{{ utilisateur.nom }}</dd>
+                </div>
+                <div class="profile-detail">
+                    <dt>Adresse e-mail</dt>
+                    <dd>{{ utilisateur.email }}</dd>
+                </div>
+                <div class="profile-detail">
+                    <dt>Membre depuis</dt>
+                    <dd>{{ utilisateur.dateCreation|date('d/m/Y') }}</dd>
+                </div>
+            </dl>
+
+            <div class="profile-card-actions">
+                <button class="button button-primary" type="button">Modifier mon profil</button>
+                <span>La modification du profil sera bientôt disponible.</span>
+            </div>
+        </section>
+    </main>
 {% endblock %}

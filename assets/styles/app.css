@@ -150,6 +150,99 @@ a {
     color: #63716b;
 }
 
+.profile-page {
+    min-height: calc(100vh - 162px);
+    padding-top: 64px;
+    padding-bottom: 80px;
+}
+
+.profile-page > h1 {
+    margin-bottom: 12px;
+}
+
+.profile-card {
+    max-width: 760px;
+    margin-top: 34px;
+    padding: 30px;
+    border: 1px solid #e4ebe5;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 12px 35px rgba(32, 70, 43, 0.05);
+}
+
+.profile-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #edf0ed;
+}
+
+.profile-avatar {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    flex: 0 0 auto;
+    place-items: center;
+    border-radius: 50%;
+    background: #e8f4ec;
+    color: #126b52;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.profile-card-heading .inventory-card-label {
+    margin-bottom: 6px;
+}
+
+.profile-card-heading h2 {
+    font-size: 23px;
+    letter-spacing: -0.7px;
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+    margin: 0;
+}
+
+.profile-detail {
+    padding: 19px 0;
+    border-bottom: 1px solid #edf0ed;
+}
+
+.profile-detail dt {
+    margin-bottom: 7px;
+    color: #758079;
+    font-size: 11px;
+}
+
+.profile-detail dd {
+    margin: 0;
+    color: #26372d;
+    font-size: 14px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.profile-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.profile-card-actions .button {
+    transform: none;
+    cursor: pointer;
+}
+
+.profile-card-actions > span {
+    color: #758079;
+    font-size: 11px;
+}
+
 .inventory-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1195,6 +1288,19 @@ h2 {
 
     .login-footer {
         min-height: 60px;
+    }
+
+    .profile-details {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        padding: 23px 20px;
+    }
+
+    .profile-card-actions {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }
 

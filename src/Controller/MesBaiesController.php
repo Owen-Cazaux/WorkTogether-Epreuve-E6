@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class BaiesController extends AbstractController
+final class MesBaiesController extends AbstractController
 {
     #[Route('/baies', name: 'app_baies')]
     public function index(BaieRepository $baieRepository): Response
