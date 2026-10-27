@@ -21,14 +21,14 @@ final class ClientFixtures extends Fixture
             [self::REFERENCES_CAMILLE_MARTIN, 'Martin', 'Camille', 'camille.martin@example.test', 'ChangeMe123', 'femme','06 08 98 36 72', '500000','Paris', 'Frane']
         ];
 
-        foreach ($clients as [$reference, $nom, $prenom, $email, $plainpassword, $raisonsociale, $telephone, $adresse, $codepostal, $ville, $pays]) {
+        foreach ($clients as [$reference, $nom, $prenom, $email, $plainPassword, $raisonSociale, $telephone, $adresse, $codepostal, $ville, $pays]) {
             $client = new Client()
                 ->setNom($nom)
                 ->setPrenom($prenom)
                 ->setEmail($email);
-            $password = $this->hasher->hashPassword($client, $plainpassword);
+            $password = $this->hasher->hashPassword($client, $plainPassword);
             $client->setPassword($password)
-                ->setRaisonSociale('')
+                ->setRaisonSociale($raisonSociale)
                 ->setTelephone($telephone)
                 ->setAdresse($adresse)
                 ->setCodePostal($codepostal)
