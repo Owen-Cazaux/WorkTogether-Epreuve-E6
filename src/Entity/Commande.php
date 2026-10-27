@@ -6,9 +6,12 @@ use App\Repository\CommandeRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Event\PrePersistEventArgs;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\PrePersist;
 
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Commande
 {
     #[ORM\Id]
@@ -20,7 +23,7 @@ class Commande
     private ?Client $client = null;
 
     #[ORM\Column]
-    private ?\DateTime $dateCommande = null;
+    private ?\DateTimeImmutable $dateCommande = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 0)]
     private ?string $montantTotal = null;
@@ -33,6 +36,12 @@ class Commande
      */
     #[ORM\OneToMany(targetEntity: Reservations::class, mappedBy: 'commande')]
     private Collection $reservations;
+
+    #[PrePersist]
+    public function applyDateCreation(PrePersistEventArgs $event)
+    {
+        $this->dateCommande = new \DateTimeImmutable();
+    }
 
     public function __construct()
     {

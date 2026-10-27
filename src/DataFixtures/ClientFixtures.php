@@ -9,6 +9,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 final class ClientFixtures extends Fixture
 {
+    public const REFERENCES_CAMILLE_MARTIN = 'camille-martin';
 
     public function __construct(UserPasswordHasherInterface $hasher)
     {
@@ -16,20 +17,27 @@ final class ClientFixtures extends Fixture
     }
     public function load(ObjectManager $manager): void
     {
-        $client = new Client()
-            ->setNom('Martin')
-        ->setPrenom('Camille')
-        ->setEmail('camille.martin@example.test');
-        $password = $this->hasher->hashPassword($client, 'ChangeMe123');
-        $client->setPassword($password)
-            ->setDateCreation(new \DateTimeImmutable())
-            ->setRaisonSociale('')
-            ->setTelephone('06 08 98 36 72')
-            ->setAdresse('2 rue du martin')
-            ->setCodePostal('50000')
-            ->setVille('Paris')
-            ->setPays('France');
-        $manager->persist($client);
+        $clients = [
+            [self::REFERENCES_CAMILLE_MARTIN, 'Martin', 'Camille', 'camille.martin@example.test', 'ChangeMe123', 'femme','06 08 98 36 72', '500000','Paris', 'Frane']
+        ];
+
+        foreach ($clients as [$reference, $nom, $prenom, $email, $plainpassword, $raisonsociale, $telephone, $adresse, $codepostal, $ville, $pays]) {
+            $client = new Client()
+                ->setNom($nom)
+                ->setPrenom($prenom)
+                ->setEmail($email);
+            $password = $this->hasher->hashPassword($client, $plainpassword);
+            $client->setPassword($password)
+                ->setRaisonSociale('')
+                ->setTelephone($telephone)
+                ->setAdresse($adresse)
+                ->setCodePostal($codepostal)
+                ->setVille($ville)
+                ->setPays($pays);
+            $manager->persist($client);
+            $this->addReference($reference, $client);
+        }
+
         $manager->flush();
     }
 }
