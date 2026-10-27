@@ -10,7 +10,13 @@ final class ComptableFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-        $manager->persist(new Comptable());
+       $comptable = (new Comptable())
+            ->setNom('Martine')
+            ->setPrenom('Martin')
+            ->setEmail('martin.martine@example.test')
+            ->setPassword(password_hash('ChangeMe123!', PASSWORD_DEFAULT))
+            ->setDateCreation(new \DateTimeImmutable());
+        $manager->persist($comptable);
         $manager->flush();
     }
 }

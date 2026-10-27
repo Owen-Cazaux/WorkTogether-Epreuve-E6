@@ -10,6 +10,14 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
+#[ORM\InheritanceType('JOINED')]
+#[ORM\DiscriminatorColumn(name: 'type', type: 'string')]
+#[ORM\DiscriminatorMap([
+    'utilisateur' => Utilisateur::class,
+    'client' => Client::class,
+    'administrateur' => Administrateur::class,
+    'comptable' => Comptable::class,
+])]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
 #[UniqueEntity(fields: ['email'], message: 'Cette adresse e-mail est déjà utilisée.')]
 class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface

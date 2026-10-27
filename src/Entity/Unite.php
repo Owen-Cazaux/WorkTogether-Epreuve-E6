@@ -22,6 +22,9 @@ class Unite
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
 
+    #[ORM\ManyToOne(inversedBy: 'unite')]
+    private ?Reservations $reservations = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -66,6 +69,18 @@ class Unite
     public function setNom(string $nom): static
     {
         $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getReservations(): ?Reservations
+    {
+        return $this->reservations;
+    }
+
+    public function setReservations(?Reservations $reservations): static
+    {
+        $this->reservations = $reservations;
 
         return $this;
     }

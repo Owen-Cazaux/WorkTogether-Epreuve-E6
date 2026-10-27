@@ -37,9 +37,16 @@ class Offre
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?string $remiseAnnuellePourcentage = null;
 
+    /**
+     * @var Collection<int, Reservations>
+     */
+    #[ORM\OneToMany(targetEntity: Reservations::class, mappedBy: 'offre')]
+    private Collection $reservations;
+
     public function __construct()
     {
         $this->administrateur = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -134,6 +141,36 @@ class Offre
     public function setRemiseAnnuellePourcentage(string $remiseAnnuellePourcentage): static
     {
         $this->remiseAnnuellePourcentage = $remiseAnnuellePourcentage;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Reservations>
+     */
+    public function getReservations(): Collection
+    {
+        return $this->reservations;
+    }
+
+    public function addReservation(Reservations $reservation): static
+    {
+        if (!$this->reservations->contains($reservation)) {
+            $this->reservations->add($reservation);
+            $reservation->setOffre($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReservation(Reservations $reservation): static
+    {
+        if ($this->reservations->removeElement($reservation)) {
+            // set the owning side to null (unless already changed)
+            if ($reservation->getOffre() === $this) {
+                $reservation->setOffre(null);
+            }
+        }
 
         return $this;
     }

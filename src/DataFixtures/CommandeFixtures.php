@@ -12,18 +12,11 @@ final class CommandeFixtures extends Fixture implements DependentFixtureInterfac
 {
     public function load(ObjectManager $manager): void
     {
-        foreach ([
-            [ClientFixtures::REFERENCE_ATELIER, '2025-01-15', '149', 'Payée'],
-            [ClientFixtures::REFERENCE_BUREAU, '2025-02-03', '399', 'En attente'],
-        ] as [$clientReference, $date, $montant, $statut]) {
-            $commande = (new Commande())
-                ->setClient($this->getReference($clientReference, Client::class))
-                ->setDateCommande(new \DateTime($date))
-                ->setMontantTotal($montant)
-                ->setStatut($statut);
-            $manager->persist($commande);
-        }
-
+        $commande = new Commande();
+        $commande->setDateCommande(new \DateTime());
+        $commande->setMontantTotal(40.00);
+        $commande->setStatut('en attente');
+        $manager->persist($commande);
         $manager->flush();
     }
 

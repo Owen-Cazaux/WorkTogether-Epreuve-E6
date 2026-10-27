@@ -8,13 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AdministrateurRepository::class)]
-class Administrateur
+class Administrateur extends Utilisateur
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
     /**
      * @var Collection<int, Offre>
      */
@@ -23,12 +18,8 @@ class Administrateur
 
     public function __construct()
     {
+        parent::__construct();
         $this->offres = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     /**

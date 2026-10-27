@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Baie;
+use App\Entity\Utilisateur;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -16,28 +17,22 @@ class BaieRepository extends ServiceEntityRepository
         parent::__construct($registry, Baie::class);
     }
 
-//    /**
-//     * @return Baie[] Returns an array of Baie objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('b.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
 
-//    public function findOneBySomeField($value): ?Baie
-//    {
-//        return $this->createQueryBuilder('b')
-//            ->andWhere('b.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function getBaieParUtilisateur(Utilisateur $utilisateur): array
+    {
+        return $this->createQueryBuilder('b')
+            ->join('b.unites', 'e')
+            ->addSelect('e')
+            ->join('e.reservations', 'r')
+            ->addSelect('r')
+            ->join('r.commande', 'c')
+            ->addSelect('c')
+            ->join('c.client', 'cli')
+            ->addSelect('cli')
+            ->setParameter('utilisateur', $utilisateur)
+            ->where('c.id = :utilisateur')
+            ->getQuery()
+            ->getResult();
+    }
+
 }
