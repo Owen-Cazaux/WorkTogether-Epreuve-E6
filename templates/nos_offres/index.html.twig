@@ -36,23 +36,42 @@
 
         <section class="offers-grid" aria-label="Les quatre offres WorkTogether">
             {% for offre in nos_offres %}
+
+
+
                 <article class="offer-card offer-card-base">
                     <div class="offer-card-heading">
                         <div>
                             <p class="offer-card-label">OFFRE {{ loop.index }}</p>
-                            <h2>{{ offre.nom }}</h2>
+                            <h2 class="offer-title{% if offre.prixMensuel <= 100 %} offer-title-base{% elseif offre.prixMensuel <= 900 %} offer-title-startup{% elseif offre.prixMensuel <= 1680 %} offer-title-pme{% else %} offer-title-enterprise{% endif %}">
+                                {{ offre.nom }}
+                            </h2>
                         </div>
-                        <span class="offer-unit-count"> {{ offre.nombreUnites }}</span>
+                        <span class="offer-unit-count offer-discount{% if offre.prixMensuel <= 100 %} offer-discount-base{% elseif offre.prixMensuel <= 900 %} offer-discount-startup{% elseif offre.prixMensuel <= 1680 %} offer-discount-pme{% else %} offer-discount-enterprise{% endif %}">
+                            {{ offre.nombreUnites }} Unités
+                        </span>
                     </div>
                     <div class="offer-price">
                         <span class="offer-price-label">Tarif mensuel</span>
                         <p><strong>{{ offre.prixMensuel}} €</strong><span> / mois</span></p>
                     </div>
                     <div class="offer-price offer-price-annual">
-                        <span class="offer-price-label">Engagement annuel <span class="offer-discount">−{{ offre.remiseAnnuellePourcentage}} %</span></span>
+                        <span class="offer-price-label">
+                            Engagement annuel
+                            <span class="offer-discount{% if offre.prixMensuel <= 100 %} offer-discount-base{% elseif offre.prixMensuel <= 900 %} offer-discount-startup{% elseif offre.prixMensuel <= 1680 %} offer-discount-pme{% else %} offer-discount-enterprise{% endif %}">
+                                −{{ offre.remiseAnnuellePourcentage}} %
+                            </span>
+                        </span>
                         <p><strong>{{ (offre.prixMensuel * 12) * (1 - offre.remiseAnnuellePourcentage/100) }}  €</strong><span> / an</span></p>
                     </div>
-                    <a class="offer-cta" href="{{ path('app_inscription') }}">Choisir cette offre <span aria-hidden="true">→</span></a>
+                    <a class="offer-cta{% if offre.prixMensuel <= 100 %} offer-cta-base{% elseif offre.prixMensuel <= 900 %} offer-cta-startup{% elseif offre.prixMensuel <= 1680 %} offer-cta-pme{% else %} offer-cta-enterprise{% endif %}" href="{{ path('app_inscription') }}">
+                        <svg class="offer-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6" />
+                            <circle cx="10" cy="20" r="1" />
+                            <circle cx="18" cy="20" r="1" />
+                        </svg>
+                        <span>Ajouter au panier</span>
+                    </a>
                 </article>
             {% endfor %}
         </section>
