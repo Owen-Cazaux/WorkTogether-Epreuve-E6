@@ -18,35 +18,61 @@
     </header>
 
     <main class="profile-page section-shell">
-        <p class="eyebrow">VOTRE ESPACE WORKTOGETHER</p>
-        <h1>Mon profil</h1>
-        <p class="inventory-intro">Consultez les informations associées à votre compte.</p>
+        <div class="profile-intro">
+            <p class="eyebrow">VOTRE ESPACE WORKTOGETHER</p>
+            <h1>Mon profil</h1>
+            <p class="inventory-intro">Consultez les informations associées à votre compte.</p>
+        </div>
 
         <section class="profile-card" aria-labelledby="profile-card-title">
             <div class="profile-card-heading">
-                <span class="profile-avatar" aria-hidden="true">{{ utilisateur.prenom|first ~ utilisateur.nom|first }}</span>
+                <span class="profile-avatar" aria-hidden="true">PN</span>
                 <div>
                     <p class="inventory-card-label">INFORMATIONS PERSONNELLES</p>
-                    <h2 id="profile-card-title">{{ utilisateur.prenom}} {{ utilisateur.nom }}</h2>
+                            <h2 id="profile-card-title">Prénom Nom</h2>
                 </div>
             </div>
 
             <dl class="profile-details">
                 <div class="profile-detail">
                     <dt>Prénom</dt>
-                    <dd>{{ utilisateur.prenom }}</dd>
+                            <dd>—</dd>
                 </div>
                 <div class="profile-detail">
                     <dt>Nom</dt>
-                    <dd>{{ utilisateur.nom }}</dd>
+                            <dd>—</dd>
                 </div>
                 <div class="profile-detail">
                     <dt>Adresse e-mail</dt>
-                    <dd>{{ utilisateur.email }}</dd>
+                            <dd>—</dd>
+                </div>
+                <div class="profile-detail">
+                    <dt>Numéro de téléphone</dt>
+                            <dd>Non renseigné</dd>
+                </div>
+                <div class="profile-detail">
+                    <dt>Mot de passe</dt>
+                    <dd aria-label="Mot de passe masqué">********</dd>
+                </div>
+                <div class="profile-detail">
+                    <dt>Adresse</dt>
+                    <dd>Non renseigné</dd>
+                </div>
+                <div class="profile-detail">
+                    <dt>Code postal</dt>
+                    <dd>Non renseigné</dd>
+                </div>
+                <div class="profile-detail">
+                    <dt>Ville</dt>
+                    <dd>Non renseigné</dd>
+                </div>
+                <div class="profile-detail">
+                    <dt>Pays</dt>
+                    <dd>Non renseigné</dd>
                 </div>
                 <div class="profile-detail">
                     <dt>Membre depuis</dt>
-                    <dd>{{ utilisateur.dateCreation|date('d/m/Y') }}</dd>
+                    <dd>—</dd>
                 </div>
             </dl>
 

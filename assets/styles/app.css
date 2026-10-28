@@ -472,17 +472,34 @@ a {
 
 .profile-page {
     min-height: calc(100vh - 162px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
+    align-items: start;
+    column-gap: 72px;
     padding-top: 64px;
     padding-bottom: 80px;
 }
 
-.profile-page > h1 {
+.profile-intro {
+    padding-top: 70px;
+    text-align: center;
+}
+
+.profile-intro > h1 {
     margin-bottom: 12px;
 }
 
+.profile-intro .inventory-intro {
+    max-width: 360px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .profile-card {
-    max-width: 760px;
-    margin-top: 34px;
+    width: 100%;
+    max-width: 560px;
+    justify-self: end;
+    margin-top: 0;
     padding: 30px;
     border: 1px solid #e4ebe5;
     border-radius: 12px;
@@ -561,6 +578,22 @@ a {
 .profile-card-actions > span {
     color: #758079;
     font-size: 11px;
+}
+
+@media (max-width: 800px) {
+    .profile-page {
+        grid-template-columns: 1fr;
+        row-gap: 28px;
+    }
+
+    .profile-intro {
+        padding-top: 0;
+    }
+
+    .profile-card {
+        justify-self: stretch;
+        max-width: none;
+    }
 }
 
 .inventory-grid {
