@@ -31,6 +31,7 @@ final class ClientFixtures extends Fixture
 
         foreach ($clients as [$reference, $nom, $prenom, $email, $plainPassword, $raisonSociale, $telephone, $adresse, $codepostal, $ville, $pays]) {
             $client = new Client()
+                ->setRoles(['ROLE_CLIENT', 'ROLE_USER'])
                 ->setNom($nom)
                 ->setPrenom($prenom)
                 ->setEmail($email);

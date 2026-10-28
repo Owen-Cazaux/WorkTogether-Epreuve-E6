@@ -26,53 +26,55 @@
 
         <section class="profile-card" aria-labelledby="profile-card-title">
             <div class="profile-card-heading">
-                <span class="profile-avatar" aria-hidden="true">PN</span>
+                <span class="profile-avatar" aria-hidden="true">{{ utilisateur.prenom|first }}{{ utilisateur.nom|first }}</span>
                 <div>
                     <p class="inventory-card-label">INFORMATIONS PERSONNELLES</p>
-                            <h2 id="profile-card-title">Prénom Nom</h2>
+                            <h2 id="profile-card-title">{{ utilisateur.prenom}} {{ utilisateur.nom }}</h2>
                 </div>
             </div>
 
             <dl class="profile-details">
                 <div class="profile-detail">
                     <dt>Prénom</dt>
-                            <dd>—</dd>
+                            <dd>{{ utilisateur.prenom }}</dd>
                 </div>
                 <div class="profile-detail">
                     <dt>Nom</dt>
-                            <dd>—</dd>
+                            <dd>{{ utilisateur.nom }}</dd>
                 </div>
                 <div class="profile-detail">
                     <dt>Adresse e-mail</dt>
-                            <dd>—</dd>
+                            <dd>{{ utilisateur.email }}</dd>
                 </div>
-                <div class="profile-detail">
-                    <dt>Numéro de téléphone</dt>
-                            <dd>Non renseigné</dd>
-                </div>
-                <div class="profile-detail">
-                    <dt>Mot de passe</dt>
-                    <dd aria-label="Mot de passe masqué">********</dd>
-                </div>
-                <div class="profile-detail">
-                    <dt>Adresse</dt>
-                    <dd>Non renseigné</dd>
-                </div>
-                <div class="profile-detail">
-                    <dt>Code postal</dt>
-                    <dd>Non renseigné</dd>
-                </div>
-                <div class="profile-detail">
-                    <dt>Ville</dt>
-                    <dd>Non renseigné</dd>
-                </div>
-                <div class="profile-detail">
-                    <dt>Pays</dt>
-                    <dd>Non renseigné</dd>
-                </div>
+                {% if utilisateur.roles == ["ROLE_CLIENT", "ROLE_USER"] %}
+                    <div class="profile-detail">
+                        <dt>Numéro de téléphone</dt>
+                                <dd>{{ utilisateur.telephone }}</dd>
+                    </div>
+                    <div class="profile-detail">
+                        <dt>Mot de passe</dt>
+                        <dd aria-label="Mot de passe masqué">********</dd>
+                    </div>
+                    <div class="profile-detail">
+                        <dt>Adresse</dt>
+                            <dd>{{ utilisateur.adresse }}</dd>
+                    </div>
+                    <div class="profile-detail">
+                        <dt>Code postal</dt>
+                            <dd>{{ utilisateur.codePostal }}</dd>
+                    </div>
+                    <div class="profile-detail">
+                        <dt>Ville</dt>
+                            <dd>{{ utilisateur.ville }}</dd>
+                    </div>
+                    <div class="profile-detail">
+                        <dt>Pays</dt>
+                            <dd>{{ utilisateur.pays }}</dd>
+                    </div>
+                {% endif %}
                 <div class="profile-detail">
                     <dt>Membre depuis</dt>
-                    <dd>—</dd>
+                    <dd>{{ utilisateur.dateCreation|date('d/m/Y') }}</dd>
                 </div>
             </dl>
 

@@ -29,6 +29,7 @@ final class ComptableFixtures extends Fixture
         ];
         foreach ($comptables as [$reference, $nom, $prenom, $email, $plainpassword]) {
             $comptable = (new Comptable())
+                ->setRoles(['ROLE_ADMIN', 'ROLE_USER'])
                 ->setNom($nom)
                 ->setPrenom($prenom)
                 ->setEmail($email);

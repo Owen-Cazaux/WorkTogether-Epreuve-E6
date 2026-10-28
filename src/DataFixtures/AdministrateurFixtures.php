@@ -23,6 +23,7 @@ final class AdministrateurFixtures extends Fixture
         foreach ($administrateurs as [$reference, $nom, $prenom, $email, $plainPassword])
         {
             $administrateur = new Administrateur()
+                ->setRoles(['ROLE_ADMIN', 'ROLE_USER'])
                 ->setNom('admin')
                 ->setPrenom('admin')
                 ->setEmail('admin.admin@gmail.com');

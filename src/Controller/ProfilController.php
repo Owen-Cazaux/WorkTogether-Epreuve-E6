@@ -16,9 +16,9 @@ final class ProfilController extends AbstractController
     public function index(ClientRepository $clientRepository): Response
     {
         $utilisateur = $this->getUser();
-        $client = $clientRepository->getClientByUtilisateur($utilisateur);
+
         return $this->render('profil/index.html.twig',[
-            'client' => $client]
+            'utilisateur' => $utilisateur,]
         );
 
     }
