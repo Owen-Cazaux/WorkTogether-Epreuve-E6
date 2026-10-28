@@ -10,8 +10,10 @@
                 <span>WorkTogether</span>
             </a>
             <div class="nav-links">
+                <a href="{{ path('app_nos_offres') }}">Nos offres</a>
                 <a class="inventory-tab inventory-tab-active" href="{{ path('app_baies') }}" aria-current="page">Mes baies</a>
                 <a class="inventory-tab" href="{{ path('app_unites') }}">Mes unités</a>
+                <a href="{{ path('app_profil') }}">Mon profil</a>
                 {% if app.user %}
                     <a class="nav-login" href="{{ logout_path() }}">Déconnexion</a>
                 {% else %}

@@ -29,46 +29,40 @@
             <p class="eyebrow">NOS SOLUTIONS</p>
             <h1 id="offers-title">Nos offres</h1>
             <p class="offers-lead">
-                Des solutions pour héberger vos équipements, gérer votre infrastructure
-                et avancer avec un accompagnement adapté.
+                Choisissez la capacité adaptée à votre infrastructure. Chaque offre comprend
+                un tarif mensuel avantageux, avec une remise supplémentaire sur l'engagement annuel.
             </p>
         </section>
 
-        <section class="offers-grid" aria-label="Nos domaines d'offre">
-            <article class="offer-card">
-                <span class="offer-card-icon" aria-hidden="true">▦</span>
-                <p class="offer-card-label">01 / HÉBERGEMENT</p>
-                <h2>Hébergement &amp; baies</h2>
-                <p>Un espace dédié pour accueillir vos équipements dans une infrastructure fiable.</p>
-                <a href="{{ path('app_inscription') }}">Découvrir <span aria-hidden="true">→</span></a>
-            </article>
-
-            <article class="offer-card offer-card-featured">
-                <span class="offer-card-icon" aria-hidden="true">⌁</span>
-                <p class="offer-card-label">02 / ÉQUIPEMENTS</p>
-                <h2>Unités &amp; ressources</h2>
-                <p>Des ressources adaptées à vos besoins et une vision claire de vos unités.</p>
-                <a href="{{ path('app_inscription') }}">Découvrir <span aria-hidden="true">→</span></a>
-            </article>
-
-            <article class="offer-card">
-                <span class="offer-card-icon" aria-hidden="true">↗</span>
-                <p class="offer-card-label">03 / ACCOMPAGNEMENT</p>
-                <h2>Assistance technique</h2>
-                <p>Un accompagnement humain pour l'installation, la maintenance et le suivi.</p>
-                <a href="{{ path('app_inscription') }}">Découvrir <span aria-hidden="true">→</span></a>
-            </article>
+        <section class="offers-grid" aria-label="Les quatre offres WorkTogether">
+            {% for offre in nos_offres %}
+                <article class="offer-card offer-card-base">
+                    <div class="offer-card-heading">
+                        <div>
+                            <p class="offer-card-label">OFFRE {{ loop.index }}</p>
+                            <h2>{{ offre.nom }}</h2>
+                        </div>
+                        <span class="offer-unit-count"> {{ offre.nombreUnites }}</span>
+                    </div>
+                    <div class="offer-price">
+                        <span class="offer-price-label">Tarif mensuel</span>
+                        <p><strong>{{ offre.prixMensuel}} €</strong><span> / mois</span></p>
+                    </div>
+                    <div class="offer-price offer-price-annual">
+                        <span class="offer-price-label">Engagement annuel <span class="offer-discount">−{{ offre.remiseAnnuellePourcentage}} %</span></span>
+                        <p><strong>{{ (offre.prixMensuel * 12) * (1 - offre.remiseAnnuellePourcentage/100) }}  €</strong><span> / an</span></p>
+                    </div>
+                    <a class="offer-cta" href="{{ path('app_inscription') }}">Choisir cette offre <span aria-hidden="true">→</span></a>
+                </article>
+            {% endfor %}
         </section>
 
-        <section class="offers-note" aria-label="Besoin d'aide">
+        <section class="offers-note" aria-label="Informations sur l'offre annuelle">
             <span class="offers-note-mark" aria-hidden="true">W</span>
             <div>
-                <h2>Une question sur nos offres&nbsp;?</h2>
-                <p>Créez votre espace WorkTogether pour découvrir votre environnement.</p>
+                <h2>Optez pour l'année, économisez davantage.</h2>
+                <p>La remise annuelle varie de 10 % à 25 % selon l'offre choisie.</p>
             </div>
-            <a class="button button-primary" href="{{ path('app_inscription') }}">
-                Créer mon espace <span aria-hidden="true">→</span>
-            </a>
         </section>
     </main>
 {% endblock %}
