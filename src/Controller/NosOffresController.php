@@ -11,8 +11,6 @@ final class NosOffresController extends AbstractController
     #[Route('/nosoffres', name: 'app_nos_offres')]
     public function index(): Response
     {
-        return $this->render('nos_offres/index.html.twig', [
-            'controller_name' => 'NosOffresController',
-        ]);
+        return $this->render('nos_offres/index.html.twig');
     }
 }
