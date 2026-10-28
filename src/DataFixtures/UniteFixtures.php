@@ -66,6 +66,26 @@ final class UniteFixtures extends Fixture implements DependentFixtureInterface
     public const REFERENCE_UNITE_CAMILLE48 = 'unite-camille-48';
     public const REFERENCE_UNITE_CAMILLE49 = 'unite-camille-49';
     public const REFERENCE_UNITE_CAMILLE50 = 'unite-camille-50';
+    public const REFERENCE_UNITE_CAMILLE51 = 'unite-camille-51';
+    public const REFERENCE_UNITE_CAMILLE52 = 'unite-camille-52';
+    public const REFERENCE_UNITE_CAMILLE53 = 'unite-camille-53';
+    public const REFERENCE_UNITE_CAMILLE54 = 'unite-camille-54';
+    public const REFERENCE_UNITE_CAMILLE55 = 'unite-camille-55';
+    public const REFERENCE_UNITE_CAMILLE56 = 'unite-camille-56';
+    public const REFERENCE_UNITE_CAMILLE57 = 'unite-camille-57';
+    public const REFERENCE_UNITE_CAMILLE58 = 'unite-camille-58';
+    public const REFERENCE_UNITE_CAMILLE59 = 'unite-camille-59';
+    public const REFERENCE_UNITE_CAMILLE60 = 'unite-camille-60';
+    public const REFERENCE_UNITE_CAMILLE61 = 'unite-camille-61';
+    public const REFERENCE_UNITE_CAMILLE62 = 'unite-camille-62';
+    public const REFERENCE_UNITE_CAMILLE63 = 'unite-camille-63';
+    public const REFERENCE_UNITE_CAMILLE64 = 'unite-camille-64';
+    public const REFERENCE_UNITE_CAMILLE65 = 'unite-camille-65';
+    public const REFERENCE_UNITE_CAMILLE66 = 'unite-camille-66';
+    public const REFERENCE_UNITE_CAMILLE67 = 'unite-camille-67';
+    public const REFERENCE_UNITE_CAMILLE68 = 'unite-camille-68';
+    public const REFERENCE_UNITE_CAMILLE69 = 'unite-camille-69';
+    public const REFERENCE_UNITE_CAMILLE70 = 'unite-camille-70';
 
     public function load(ObjectManager $manager): void
     {
@@ -78,9 +98,9 @@ final class UniteFixtures extends Fixture implements DependentFixtureInterface
             [self::REFERENCE_UNITE5, BaieFixtures::REFERENCE_BAIE5, EtatFixtures::REFERENCE_HORS_SERVICE, 'unite 5'],
             [self::REFERENCE_UNITE_CAMILLE1, BaieFixtures::REFERENCE_BAIE_CAMILLE1, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 01'],
             [self::REFERENCE_UNITE_CAMILLE2, BaieFixtures::REFERENCE_BAIE_CAMILLE1, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 02'],
-            [self::REFERENCE_UNITE_CAMILLE3, BaieFixtures::REFERENCE_BAIE_CAMILLE1, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 03'],
+            [self::REFERENCE_UNITE_CAMILLE3, BaieFixtures::REFERENCE_BAIE_CAMILLE1, EtatFixtures::REFERENCE_MAINTENANCE, 'Camille - Unite 03'],
             [self::REFERENCE_UNITE_CAMILLE4, BaieFixtures::REFERENCE_BAIE_CAMILLE1, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 04'],
-            [self::REFERENCE_UNITE_CAMILLE5, BaieFixtures::REFERENCE_BAIE_CAMILLE1, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 05'],
+            [self::REFERENCE_UNITE_CAMILLE5, BaieFixtures::REFERENCE_BAIE_CAMILLE1, EtatFixtures::REFERENCE_HORS_SERVICE, 'Camille - Unite 05'],
             [self::REFERENCE_UNITE_CAMILLE6, BaieFixtures::REFERENCE_BAIE_CAMILLE2, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 06'],
             [self::REFERENCE_UNITE_CAMILLE7, BaieFixtures::REFERENCE_BAIE_CAMILLE2, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 07'],
             [self::REFERENCE_UNITE_CAMILLE8, BaieFixtures::REFERENCE_BAIE_CAMILLE2, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 08'],
@@ -126,6 +146,26 @@ final class UniteFixtures extends Fixture implements DependentFixtureInterface
             [self::REFERENCE_UNITE_CAMILLE48, BaieFixtures::REFERENCE_BAIE_CAMILLE10, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 48'],
             [self::REFERENCE_UNITE_CAMILLE49, BaieFixtures::REFERENCE_BAIE_CAMILLE10, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 49'],
             [self::REFERENCE_UNITE_CAMILLE50, BaieFixtures::REFERENCE_BAIE_CAMILLE10, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 50'],
+            [self::REFERENCE_UNITE_CAMILLE51, BaieFixtures::REFERENCE_BAIE_CAMILLE1, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 51'],
+            [self::REFERENCE_UNITE_CAMILLE52, BaieFixtures::REFERENCE_BAIE_CAMILLE1, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 52'],
+            [self::REFERENCE_UNITE_CAMILLE53, BaieFixtures::REFERENCE_BAIE_CAMILLE2, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 53'],
+            [self::REFERENCE_UNITE_CAMILLE54, BaieFixtures::REFERENCE_BAIE_CAMILLE2, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 54'],
+            [self::REFERENCE_UNITE_CAMILLE55, BaieFixtures::REFERENCE_BAIE_CAMILLE3, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 55'],
+            [self::REFERENCE_UNITE_CAMILLE56, BaieFixtures::REFERENCE_BAIE_CAMILLE3, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 56'],
+            [self::REFERENCE_UNITE_CAMILLE57, BaieFixtures::REFERENCE_BAIE_CAMILLE4, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 57'],
+            [self::REFERENCE_UNITE_CAMILLE58, BaieFixtures::REFERENCE_BAIE_CAMILLE4, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 58'],
+            [self::REFERENCE_UNITE_CAMILLE59, BaieFixtures::REFERENCE_BAIE_CAMILLE5, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 59'],
+            [self::REFERENCE_UNITE_CAMILLE60, BaieFixtures::REFERENCE_BAIE_CAMILLE5, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 60'],
+            [self::REFERENCE_UNITE_CAMILLE61, BaieFixtures::REFERENCE_BAIE_CAMILLE6, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 61'],
+            [self::REFERENCE_UNITE_CAMILLE62, BaieFixtures::REFERENCE_BAIE_CAMILLE6, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 62'],
+            [self::REFERENCE_UNITE_CAMILLE63, BaieFixtures::REFERENCE_BAIE_CAMILLE7, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 63'],
+            [self::REFERENCE_UNITE_CAMILLE64, BaieFixtures::REFERENCE_BAIE_CAMILLE7, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 64'],
+            [self::REFERENCE_UNITE_CAMILLE65, BaieFixtures::REFERENCE_BAIE_CAMILLE8, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 65'],
+            [self::REFERENCE_UNITE_CAMILLE66, BaieFixtures::REFERENCE_BAIE_CAMILLE8, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 66'],
+            [self::REFERENCE_UNITE_CAMILLE67, BaieFixtures::REFERENCE_BAIE_CAMILLE9, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 67'],
+            [self::REFERENCE_UNITE_CAMILLE68, BaieFixtures::REFERENCE_BAIE_CAMILLE9, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 68'],
+            [self::REFERENCE_UNITE_CAMILLE69, BaieFixtures::REFERENCE_BAIE_CAMILLE10, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 69'],
+            [self::REFERENCE_UNITE_CAMILLE70, BaieFixtures::REFERENCE_BAIE_CAMILLE10, EtatFixtures::REFERENCE_DISPONIBLE, 'Camille - Unite 70'],
         ];
         foreach ($unites as [$reference,$baieReference,$etatReference, $nom])
         {

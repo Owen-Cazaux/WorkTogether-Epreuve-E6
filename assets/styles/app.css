@@ -280,6 +280,57 @@ a {
     list-style: none;
 }
 
+.inventory-unit-scroll {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 8px;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.inventory-unit-list-scrollable {
+    max-height: 247px;
+    margin-top: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-width: none;
+}
+
+.inventory-unit-list-scrollable::-webkit-scrollbar {
+    display: none;
+}
+
+.inventory-scrollbar {
+    position: relative;
+    min-height: 100%;
+    border-radius: 4px;
+    background: #f0f3f0;
+    cursor: pointer;
+    touch-action: none;
+    user-select: none;
+}
+
+.inventory-scrollbar-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 32px;
+    border: 1px solid #f0f3f0;
+    border-radius: 4px;
+    background: #87998c;
+    cursor: grab;
+}
+
+.inventory-scrollbar:hover .inventory-scrollbar-thumb {
+    background: #627a69;
+}
+
+.inventory-scrollbar:focus-visible {
+    outline: 2px solid #126b52;
+    outline-offset: 2px;
+}
+
 .inventory-unit-list li {
     padding-top: 8px;
     border-top: 1px solid #edf0ed;

@@ -68,6 +68,26 @@ class ReservationsFixtures extends Fixture implements DependentFixtureInterface
     public const RESERVATION_CAMILLE48 = 'reservation-camille-48';
     public const RESERVATION_CAMILLE49 = 'reservation-camille-49';
     public const RESERVATION_CAMILLE50 = 'reservation-camille-50';
+    public const RESERVATION_CAMILLE51 = 'reservation-camille-51';
+    public const RESERVATION_CAMILLE52 = 'reservation-camille-52';
+    public const RESERVATION_CAMILLE53 = 'reservation-camille-53';
+    public const RESERVATION_CAMILLE54 = 'reservation-camille-54';
+    public const RESERVATION_CAMILLE55 = 'reservation-camille-55';
+    public const RESERVATION_CAMILLE56 = 'reservation-camille-56';
+    public const RESERVATION_CAMILLE57 = 'reservation-camille-57';
+    public const RESERVATION_CAMILLE58 = 'reservation-camille-58';
+    public const RESERVATION_CAMILLE59 = 'reservation-camille-59';
+    public const RESERVATION_CAMILLE60 = 'reservation-camille-60';
+    public const RESERVATION_CAMILLE61 = 'reservation-camille-61';
+    public const RESERVATION_CAMILLE62 = 'reservation-camille-62';
+    public const RESERVATION_CAMILLE63 = 'reservation-camille-63';
+    public const RESERVATION_CAMILLE64 = 'reservation-camille-64';
+    public const RESERVATION_CAMILLE65 = 'reservation-camille-65';
+    public const RESERVATION_CAMILLE66 = 'reservation-camille-66';
+    public const RESERVATION_CAMILLE67 = 'reservation-camille-67';
+    public const RESERVATION_CAMILLE68 = 'reservation-camille-68';
+    public const RESERVATION_CAMILLE69 = 'reservation-camille-69';
+    public const RESERVATION_CAMILLE70 = 'reservation-camille-70';
 
     public function load(ObjectManager $manager): void
     {
@@ -127,6 +147,26 @@ class ReservationsFixtures extends Fixture implements DependentFixtureInterface
             [self::RESERVATION_CAMILLE48, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE48, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
             [self::RESERVATION_CAMILLE49, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE49, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
             [self::RESERVATION_CAMILLE50, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE50, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE51, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE51, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE52, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE52, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE53, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE53, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE54, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE54, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE55, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE55, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE56, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE56, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE57, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE57, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE58, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE58, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE59, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE59, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE60, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE60, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE61, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE61, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE62, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE62, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE63, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE63, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE64, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE64, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE65, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE65, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE66, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE66, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE67, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE67, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE68, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE68, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE69, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE69, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
+            [self::RESERVATION_CAMILLE70, CommandeFixtures::REFERENCE_COMMANDE1, OffreFixtures::REFERENCE_OFFRE5, UniteFixtures::REFERENCE_UNITE_CAMILLE70, '2026-01-01', '2026-12-31', 'annuel', 2499.00],
         ];
         foreach ($reservations as [$reference, $commandeReference, $offreReference, $uniteReference, $dateDebut, $dateFin, $periodicite, $prix]) {
             $reservation = new Reservations()

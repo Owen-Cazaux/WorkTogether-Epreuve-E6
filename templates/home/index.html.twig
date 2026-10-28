@@ -29,7 +29,7 @@
             <header class="site-header">
                 <nav class="navigation home-navigation" aria-label="Navigation principale">
                     <div class="nav-links home-nav-links">
-                        <a href="#services">Nos offres</a>
+                        <a href="{{ path('') }}">Nos offres</a>
                         {% if app.user %}
                             <a href="{{ path('app_baies') }}">Mes baies</a>
                             <a href="{{ path('app_unites') }}">Mes unités</a>

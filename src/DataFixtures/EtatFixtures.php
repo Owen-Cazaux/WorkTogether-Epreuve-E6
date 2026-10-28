@@ -16,7 +16,7 @@ final class EtatFixtures extends Fixture
     {
         $etats = [
             [self::REFERENCE_DISPONIBLE, 'Disponible'],
-            [self::REFERENCE_MAINTENANCE,'En maintenance'],
+            [self::REFERENCE_MAINTENANCE,'Maintenance'],
             [self::REFERENCE_HORS_SERVICE, 'Hors service']
         ];
         foreach ($etats as [$reference, $label]) {

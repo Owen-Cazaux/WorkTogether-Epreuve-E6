@@ -36,18 +36,41 @@
                         <h2>{{ baie.numero }}</h2>
                         <p>{{ baie.unites|length }} unité(s) installée(s) sur {{ baie.nombreUnités }} emplacement(s).</p>
                         {% if baie.unites is not empty %}
-                            <ul class="inventory-unit-list">
+                            {% if baie.unites|length > 5 %}
+                                <div class="inventory-unit-scroll" data-controller="unit-scrollbar">
+                            {% endif %}
+                            <ul
+                                id="unites-baie-{{ baie.id }}"
+                                class="inventory-unit-list{% if baie.unites|length > 5 %} inventory-unit-list-scrollable{% endif %}"
+                                {% if baie.unites|length > 5 %}data-unit-scrollbar-target="content"{% endif %}
+                            >
                                 {% for unite in baie.unites %}
                                     <li class="unite-etat">
                                         <p>{{ unite.nom }}</p>
                                         <span class="unite-separator" aria-hidden="true"></span>
-                                        <span class="badge{% if unite.etat and unite.etat.libelle == 'Disponible' %} badge-disponible{% elseif unite.etat and unite.etat.libelle == 'En maintenance' %} badge-maintenance{% elseif unite.etat and unite.etat.libelle == 'Hors service' %} badge-hors-service{% endif %}">
+                                        <span class="badge{% if unite.etat and unite.etat.libelle == 'Disponible' %} badge-disponible{% elseif unite.etat and unite.etat.libelle == 'Maintenance' %} badge-maintenance{% elseif unite.etat and unite.etat.libelle == 'Hors service' %} badge-hors-service{% endif %}">
                                             {{ unite.etat ? unite.etat.libelle : 'Non renseigné' }}
                                         </span>
                                     </li>
-
                                 {% endfor %}
                             </ul>
+                            {% if baie.unites|length > 5 %}
+                                    <div
+                                        class="inventory-scrollbar"
+                                        data-unit-scrollbar-target="track"
+                                        role="scrollbar"
+                                        aria-label="Défilement des unités de la baie {{ baie.numero }}"
+                                        aria-controls="unites-baie-{{ baie.id }}"
+                                        aria-orientation="vertical"
+                                        aria-valuemin="0"
+                                        aria-valuemax="100"
+                                        aria-valuenow="0"
+                                        tabindex="0"
+                                    >
+                                        <span class="inventory-scrollbar-thumb" data-unit-scrollbar-target="thumb"></span>
+                                    </div>
+                                </div>
+                            {% endif %}
                         {% endif %}
                     </article>
                 {% endfor %}
