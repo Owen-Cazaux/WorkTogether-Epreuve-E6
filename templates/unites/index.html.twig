@@ -43,7 +43,11 @@
                             <tr>
                                 <td>{{ unite.nom }}</td>
                                 <td>{{ unite.baie ? unite.baie.numero : 'Non affectée' }}</td>
-                                <td>{{ unite.etat ? unite.etat.libelle : 'Non renseigné' }}</td>
+                                <td>
+                                    <span class="badge{% if unite.etat and unite.etat.libelle == 'Disponible' %} badge-disponible{% elseif unite.etat and unite.etat.libelle == 'En maintenance' %} badge-maintenance{% elseif unite.etat and unite.etat.libelle == 'Hors service' %} badge-hors-service{% endif %}">
+                                        {{ unite.etat ? unite.etat.libelle : 'Non renseigné' }}
+                                    </span>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>

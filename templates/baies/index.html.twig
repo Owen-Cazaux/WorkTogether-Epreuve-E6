@@ -38,7 +38,14 @@
                         {% if baie.unites is not empty %}
                             <ul class="inventory-unit-list">
                                 {% for unite in baie.unites %}
-                                    <li>{{ unite.nom }}</li>
+                                    <li class="unite-etat">
+                                        <p>{{ unite.nom }}</p>
+                                        <span class="unite-separator" aria-hidden="true"></span>
+                                        <span class="badge{% if unite.etat and unite.etat.libelle == 'Disponible' %} badge-disponible{% elseif unite.etat and unite.etat.libelle == 'En maintenance' %} badge-maintenance{% elseif unite.etat and unite.etat.libelle == 'Hors service' %} badge-hors-service{% endif %}">
+                                            {{ unite.etat ? unite.etat.libelle : 'Non renseigné' }}
+                                        </span>
+                                    </li>
+
                                 {% endfor %}
                             </ul>
                         {% endif %}

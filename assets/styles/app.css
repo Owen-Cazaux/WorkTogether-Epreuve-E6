@@ -287,36 +287,128 @@ a {
     font-size: 13px;
 }
 
+.inventory-unit-list .unite-etat {
+    display: grid;
+    grid-template-columns: max-content 1px max-content;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px 0;
+}
+
+.inventory-unit-list .unite-etat p {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.inventory-unit-list .unite-separator {
+    align-self: stretch;
+    min-height: 24px;
+    border-radius: 1px;
+    background: #dce5de;
+}
+
+.inventory-unit-list .unite-etat .badge {
+    justify-self: start;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 7px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.badge::before {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+}
+
+.badge-disponible {
+    background: #e5f4ec;
+    color: #176b3a;
+    border-color: #cce8d7;
+}
+
+.badge-maintenance {
+    background: #fff1d6;
+    color: #8a5100;
+    border-color: #f2dfb8;
+}
+
+.badge-hors-service {
+    background: #fde8e7;
+    color: #a52822;
+    border-color: #f3cfcc;
+}
+
 .inventory-table-wrapper {
     overflow-x: auto;
 }
 
 .inventory-table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     text-align: left;
 }
 
 .inventory-table th,
 .inventory-table td {
-    padding: 15px 18px;
-    border-bottom: 1px solid #edf0ed;
+    padding: 16px 20px;
+    border-bottom: 1px solid #edf1ed;
+    vertical-align: middle;
 }
 
 .inventory-table th {
-    color: #63716b;
+    background: #f5f8f5;
+    color: #53645a;
     font-size: 11px;
     font-weight: 700;
+    letter-spacing: 0.07em;
     text-transform: uppercase;
+}
+
+.inventory-table th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.inventory-table th:last-child {
+    border-top-right-radius: 10px;
 }
 
 .inventory-table td {
     color: #34483b;
     font-size: 13px;
+    transition: background-color 160ms ease;
+}
+
+.inventory-table tbody tr:nth-child(even) td {
+    background: #fbfcfb;
+}
+
+.inventory-table tbody tr:hover td {
+    background: #f2f7f3;
 }
 
 .inventory-table tbody tr:last-child td {
     border-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .inventory-table td {
+        transition: none;
+    }
 }
 
 .nav-cta span {
