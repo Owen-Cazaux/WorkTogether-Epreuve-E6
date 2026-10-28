@@ -29,10 +29,10 @@ class Reservations
     private ?string $prix = null;
 
     #[ORM\ManyToOne(inversedBy: 'reservations')]
-    private ?commande $commande = null;
+    private ?Commande $commande = null;
 
     #[ORM\ManyToOne(inversedBy: 'reservations')]
-    private ?offre $offre = null;
+    private ?Offre $offre = null;
 
     /**
      * @var Collection<int, unite>

@@ -13,15 +13,15 @@ final class BaieFixtures extends Fixture
     public const REFERENCE_BAIE3 = 'baie3';
     public const REFERENCE_BAIE4 = 'baie4';
     public const REFERENCE_BAIE5 = 'baie5';
-    
+
     public function load(ObjectManager $manager): void
     {
         $baies = [
             [self::REFERENCE_BAIE1, 'B-001', 42],
-            [self::REFERENCE_BAIE2, 'B-002', 40],
-            [self::REFERENCE_BAIE3, 'B-003', 36],
-            [self::REFERENCE_BAIE4, 'B-004', 48],
-            [self::REFERENCE_BAIE5, 'B-005', 32],
+            [self::REFERENCE_BAIE2, 'B-002', 42],
+            [self::REFERENCE_BAIE3, 'B-003', 42],
+            [self::REFERENCE_BAIE4, 'B-004', 42],
+            [self::REFERENCE_BAIE5, 'B-005', 42],
         ];
         foreach ($baies as [$reference, $numero, $nombre]){
             $baie = new Baie();

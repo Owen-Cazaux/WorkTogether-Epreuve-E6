@@ -18,7 +18,7 @@ class BaieRepository extends ServiceEntityRepository
     }
 
 
-    public function getBaieParUtilisateur(Utilisateur $utilisateur): array
+    public function getBaieParUtilisateur($utilisateur): array
     {
         return $this->createQueryBuilder('b')
             ->join('b.unites', 'e')
@@ -30,7 +30,7 @@ class BaieRepository extends ServiceEntityRepository
             ->join('c.client', 'cli')
             ->addSelect('cli')
             ->setParameter('utilisateur', $utilisateur)
-            ->where('c.id = :utilisateur')
+            ->where('cli.id = :utilisateur')
             ->getQuery()
             ->getResult();
     }

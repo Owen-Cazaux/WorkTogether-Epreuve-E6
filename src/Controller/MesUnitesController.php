@@ -12,7 +12,8 @@ final class MesUnitesController extends AbstractController
     #[Route('/unites', name: 'app_unites')]
     public function index(UniteRepository $uniteRepository): Response
     {
-        $unites = $uniteRepository->findBy([], ['nom' => 'ASC']);
+        $utilisateur = $this->getUser();
+        $unites = $uniteRepository->getUnitesParUtilisateur($utilisateur);
 
         return $this->render('unites/index.html.twig', [
             'unites' => $unites,

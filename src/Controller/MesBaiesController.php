@@ -12,7 +12,8 @@ final class MesBaiesController extends AbstractController
     #[Route('/baies', name: 'app_baies')]
     public function index(BaieRepository $baieRepository): Response
     {
-        $baies = $baieRepository->getBaieParUtilisateur($this->getUser());
+        $utilisateur = $this->getUser();
+        $baies = $baieRepository->getBaieParUtilisateur($utilisateur);
 
         return $this->render('baies/index.html.twig', [
             'baies' => $baies,

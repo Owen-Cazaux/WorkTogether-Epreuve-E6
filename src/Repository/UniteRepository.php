@@ -16,28 +16,19 @@ class UniteRepository extends ServiceEntityRepository
         parent::__construct($registry, Unite::class);
     }
 
-//    /**
-//     * @return Unite[] Returns an array of Unite objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('u.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function getUnitesParUtilisateur($utilisateur) {
+        return $this->createQueryBuilder('u')
+            ->join('u.reservations', 'r')
+            ->addSelect('r')
+            ->join('r.commande', 'c')
+            ->addSelect('c')
+            ->join('c.client', 'cli')
+            ->addSelect('cli')
+            ->setParameter('utilisateur', $utilisateur)
+            ->where('cli.id = :utilisateur')
+            ->orderBy('u.nom', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 
-//    public function findOneBySomeField($value): ?Unite
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
 }
