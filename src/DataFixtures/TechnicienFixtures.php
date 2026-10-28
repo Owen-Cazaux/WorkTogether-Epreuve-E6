@@ -10,12 +10,18 @@ final class TechnicienFixtures extends Fixture
 {
     public const REFERENCE_ALEX = 'technicien-alex-durand';
     public const REFERENCE_SOFIA = 'technicien-sofia-bernard';
+    public const REFERENCE_MARC = 'technicien-marc-dubois';
+    public const REFERENCE_LEA = 'technicien-lea-moreau';
+    public const REFERENCE_THOMAS = 'technicien-thomas-garcia';
 
     public function load(ObjectManager $manager): void
     {
         $techniciens = [
             [self::REFERENCE_ALEX, 'Durand', 'Alex'],
             [self::REFERENCE_SOFIA, 'Bernard', 'Sofia'],
+            [self::REFERENCE_MARC, 'Dubois', 'Marc'],
+            [self::REFERENCE_LEA, 'Moreau', 'Lea'],
+            [self::REFERENCE_THOMAS, 'Garcia', 'Thomas'],
         ];
 
         foreach ($techniciens as [$reference, $nom, $prenom]) {
