@@ -34,5 +34,4 @@ class BaieRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
-
 }
