@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter  au panier — WorkTogether{% endblock %}
+
+{% block body %}
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navigation principale">
+            <a class="brand" href="" aria-label="WorkTogether, accueil">
+                <span class="brand-mark" aria-hidden="true">W</span>
+                <span>WorkTogether</span>
+            </a>
+            <div class="nav-links">
+                <a class="inventory-tab" href="{{ path('app_nos_offres') }}">Nos offres</a>
+                <a class="inventory-tab" href="{{ path('app_pannier') }}">Mon panier</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="cart-add-page section-shell">
+        <a class="cart-add-back" href="{{ path('app_nos_offres') }}">← Retour aux offres</a>
+
+        <section class="cart-add-intro" aria-labelledby="cart-add-title">
+            <p class="eyebrow">VOTRE SÉLECTION</p>
+            <h1 id="cart-add-title">Vérifiez votre offre</h1>
+            <p>Consultez les détails et choisissez la quantité avant de l’ajouter au panier.</p>
+        </section>
+
+        <div class="cart-add-layout">
+            <section class="cart-add-details" aria-labelledby="selected-offer-title">
+                <div class="cart-add-card-heading">
+                    <span class="cart-add-label">OFFRE SÉLECTIONNÉE</span>
+                    <span class="offer-unit-count"> unités</span>
+                </div>
+                <h2 id="selected-offer-title"></h2>
+                <p class="cart-add-description">
+                    Une offre adaptée à votre infrastructure, comprenant jusqu’à  unités.
+                </p>
+
+                <div class="cart-add-prices">
+                    <div class="cart-add-price-row">
+                        <span>Tarif mensuel par offre</span>
+                        <strong> <small>/ mois</small></strong>
+                    </div>
+                    <div class="cart-add-price-row">
+                        <span>Engagement annuel</span>
+                        <strong> € <small>/ an</small></strong>
+                    </div>
+                    <p class="cart-add-discount">
+                        Économisez 12    % avec l’engagement annuel.
+                    </p>
+                </div>
+            </section>
+
+            <section class="cart-add-quantity" aria-labelledby="quantity-title">
+                <p class="eyebrow">AVANT DE CONTINUER</p>
+                <h2 id="quantity-title">Personnalisez votre abonnement</h2>
+                <div class="cart-add-fields">
+                    <div class="cart-add-field cart-add-field-quantity">
+                        <label for="offer-quantity">Quantité</label>
+                        <input id="offer-quantity" name="quantite" type="number" min="1" step="1" value="1">
+                    </div>
+                    <div class="cart-add-field">
+                        <label for="subscription-start">Date de début</label>
+                        <input id="subscription-start" name="date_debut" type="date" min="{{ 'now'|date('Y-m-d') }}">
+                    </div>
+                </div>
+                <button class="cart-add-confirm" type="button" disabled>Ajouter au panier</button>
+                <p class="cart-add-note">L’ajout au panier sera disponible prochainement.</p>
+            </section>
+        </div>
+    </main>
+{% endblock %}

@@ -64,7 +64,7 @@
                         </span>
                         <p><strong>{{ (offre.prixMensuel * 12) * (1 - offre.remiseAnnuellePourcentage/100) }}  €</strong><span> / an</span></p>
                     </div>
-                    <a class="offer-cta{% if offre.prixMensuel <= 100 %} offer-cta-base{% elseif offre.prixMensuel <= 900 %} offer-cta-startup{% elseif offre.prixMensuel <= 1680 %} offer-cta-pme{% else %} offer-cta-enterprise{% endif %}" href="{{ path('app_inscription') }}">
+                    <a class="offer-cta{% if offre.prixMensuel <= 100 %} offer-cta-base{% elseif offre.prixMensuel <= 900 %} offer-cta-startup{% elseif offre.prixMensuel <= 1680 %} offer-cta-pme{% else %} offer-cta-enterprise{% endif %}" href="{{ path('app_ajouter_pannier', {id: offre.id}) }}">
                         <svg class="offer-cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6" />
                             <circle cx="10" cy="20" r="1" />
