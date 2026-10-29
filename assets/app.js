@@ -8,3 +8,14 @@ import './stimulus_bootstrap.js';
 import './styles/app.css';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+const continuesignin = document.getElementById('continue-signin');
+continuesignin.addEventListener('click', function() {
+    const client = document.getElementById('client')
+
+    if (client.checked) {
+        continuesignin.href = continuesignin.dataset.clientUrl;
+    } else {
+        continuesignin.href = continuesignin.dataset.comptableUrl;
+    }
+});

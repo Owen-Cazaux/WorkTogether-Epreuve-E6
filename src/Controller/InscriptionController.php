@@ -36,8 +36,20 @@ final class InscriptionController extends AbstractController
             return $this->redirectToRoute('app_connexion');
         }
 
-        return $this->render('inscription/index.html.twig', [
-            'form' => $form
-        ]);
+        return $this->render('inscription/index.html.twig', []);
+
+    }
+    #[Route('/inscription/client', name: 'app_inscription_client')]
+    public function client() {
+
+
+        return $this->render('inscription/client.html.twig', []);
+    }
+
+    #[Route('/inscription/comptable', name: 'app_inscription_comptable')]
+    public function comptable() {
+
+
+        return $this->render('inscription/comptable.html.twig', []);
     }
 }

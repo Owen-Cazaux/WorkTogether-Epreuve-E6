@@ -14,13 +14,13 @@
     <main class="login-page">
         <section class="login-intro">
             <p class="eyebrow"><span class="eyebrow-dot"></span> Votre espace WorkTogether</p>
-            <h1>Tout commence<br><span>ensemble.</span></h1>
+            <h1>Rejoignez-nous<br><span>ensemble.</span></h1>
             <p class="login-intro-copy">
-                Créez votre espace WorkTogether et profitez d'un accompagnement adapté à votre entreprise.
+                Créez votre compte et accédez à un espace adapté à votre rôle.
             </p>
             <div class="login-benefit">
                 <span class="note-icon" aria-hidden="true">✓</span>
-                <span>Une infrastructure et une équipe à vos côtés.</span>
+                <span>Choisissez le profil qui vous correspond.</span>
             </div>
             <div class="login-decoration" aria-hidden="true">
                 <span class="decoration-ring ring-small"></span>
@@ -30,22 +30,43 @@
             </div>
         </section>
 
-        <section class="login-card register-card" aria-labelledby="register-title">
+        <section class="login-card signup-choice-card" aria-labelledby="signup-choice-title">
             <div class="login-card-heading">
-                <p class="eyebrow">ESPACE CLIENT</p>
-                <h2 id="register-title">Créer un compte</h2>
-                <p>Inscrivez-vous pour rejoindre WorkTogether.</p>
+                <p class="eyebrow">CRÉATION DE COMPTE</p>
+                <h2 id="signup-choice-title">Comment souhaitez-vous vous inscrire ?</h2>
+                <p>Sélectionnez le type de compte qui vous correspond.</p>
             </div>
 
-            <div class="login-form-placeholder">
-                {{ form_start(form, {attr: {class: 'login-form register-form'}}) }}
-                {{ form_row(form.nom, {row_attr: {class: 'register-field'}}) }}
-                {{ form_row(form.prenom, {row_attr: {class: 'register-field'}}) }}
-                {{ form_row(form.email, {row_attr: {class: 'register-field register-field-wide'}}) }}
-                {{ form_row(form.motDePasse, {row_attr: {class: 'register-field register-field-wide'}}) }}
-                {{ form_row(form.submit, {row_attr: {class: 'register-submit'}}) }}
-                {{ form_end(form) }}
-            </div>
+            <fieldset class="signup-choices">
+                <legend class="visually-hidden">Type de compte</legend>
+                <label class="signup-choice">
+                    <input id="client" type="radio" name="type_compte" value="client" checked>
+                    <span class="signup-choice-icon" aria-hidden="true">C</span>
+                    <span class="signup-choice-copy">
+                        <strong>En tant que client</strong>
+                        <span>Gérez vos baies et vos unités depuis votre espace.</span>
+                    </span>
+                    <span class="signup-choice-indicator" aria-hidden="true"></span>
+                </label>
+
+                <label class="signup-choice">
+                    <input id="comptable" type="radio" name="type_compte" value="comptable">
+                    <span class="signup-choice-icon" aria-hidden="true">€</span>
+                    <span class="signup-choice-copy">
+                        <strong>En tant que comptable</strong>
+                        <span>Retrouvez et suivez les informations de facturation.</span>
+                    </span>
+                    <span class="signup-choice-indicator" aria-hidden="true"></span>
+                </label>
+            </fieldset>
+
+                <a id="continue-signin"
+                    href="{{ path('app_inscription_client') }}"
+                    data-client-url="{{ path('app_inscription_client') }}"
+                    data-comptable-url="{{ path('app_inscription_comptable') }}"
+                    class="signup-choice-submit">
+                        Continuer
+                </a>
 
             <p class="login-help">Vous avez déjà un compte ? <a href="{{ path('app_connexion') }}">Se connecter</a></p>
         </section>
