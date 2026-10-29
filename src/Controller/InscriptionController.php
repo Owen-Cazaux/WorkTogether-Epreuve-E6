@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Role;
 use App\Entity\Utilisateur;
 use App\Entity\Client;
 use App\Entity\Comptable;
@@ -36,6 +37,7 @@ final class InscriptionController extends AbstractController
             }
 
             $client->setPassword($passwordHasher->hashPassword($client, $password));
+            $client->setRoles(['ROLE_CLIENT', 'ROLE_USER']);
             $em->persist($client);
             $em->flush();
 
@@ -63,6 +65,7 @@ final class InscriptionController extends AbstractController
             }
 
             $comptable->setPassword($passwordHasher->hashPassword($comptable, $password));
+            $comptable->setRoles(['ROLE_COMPTABLE', 'ROLE_USER']);
             $em->persist($comptable);
             $em->flush();
 
