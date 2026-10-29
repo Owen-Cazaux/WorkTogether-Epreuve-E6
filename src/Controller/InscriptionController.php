@@ -3,7 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Utilisateur;
-use App\Form\InscriptionFormType;
+use App\Entity\Client;
+use App\Entity\Comptable;
+use App\Form\InscriptionComptableType;
+use App\Form\InscriptionClientType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,8 +25,8 @@ final class InscriptionController extends AbstractController
     public function client(Request $request,
                            EntityManagerInterface $em,
                            UserPasswordHasherInterface $passwordHasher,) : Response {
-        $utilisateur = new Utilisateur();
-        $form = $this->createForm(InscriptionFormType::class, $utilisateur);
+        $client = new Client();
+        $form = $this->createForm(InscriptionClientType::class, $client);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -32,8 +35,8 @@ final class InscriptionController extends AbstractController
                 throw new \LogicException('Le mot de passe soumis doit être une chaîne de caractères.');
             }
 
-            $utilisateur->setPassword($passwordHasher->hashPassword($utilisateur, $password));
-            $em->persist($utilisateur);
+            $client->setPassword($passwordHasher->hashPassword($client, $password));
+            $em->persist($client);
             $em->flush();
 
             return $this->redirectToRoute('app_connexion');
@@ -49,8 +52,8 @@ final class InscriptionController extends AbstractController
     public function comptable(Request $request,
                               EntityManagerInterface $em,
                               UserPasswordHasherInterface $passwordHasher,) : Response {
-        $utilisateur = new Utilisateur();
-        $form = $this->createForm(InscriptionFormType::class, $utilisateur);
+        $comptable = new Comptable();
+        $form = $this->createForm(InscriptionComptableType::class, $comptable);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -59,8 +62,8 @@ final class InscriptionController extends AbstractController
                 throw new \LogicException('Le mot de passe soumis doit être une chaîne de caractères.');
             }
 
-            $utilisateur->setPassword($passwordHasher->hashPassword($utilisateur, $password));
-            $em->persist($utilisateur);
+            $comptable->setPassword($passwordHasher->hashPassword($comptable, $password));
+            $em->persist($comptable);
             $em->flush();
 
             return $this->redirectToRoute('app_connexion');

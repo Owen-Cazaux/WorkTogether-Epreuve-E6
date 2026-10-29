@@ -33,7 +33,7 @@
         <section class="login-card register-card" aria-labelledby="register-title">
             <div class="login-card-heading">
                 <p class="eyebrow">ESPACE CLIENT</p>
-                <h2 id="register-title">Créer un compte</h2>
+                <h2 id="register-title">Créer un compte client</h2>
                 <p>Inscrivez-vous pour rejoindre WorkTogether.</p>
             </div>
 
@@ -43,6 +43,12 @@
                 {{ form_row(form.prenom, {row_attr: {class: 'register-field'}}) }}
                 {{ form_row(form.email, {row_attr: {class: 'register-field register-field-wide'}}) }}
                 {{ form_row(form.motDePasse, {row_attr: {class: 'register-field register-field-wide'}}) }}
+                {{ form_row(form.raisonSociale, {row_attr: {class: 'register-field'}}) }}
+                {{ form_row(form.telephone, {row_attr: {class: 'register-field'}}) }}
+                {{ form_row(form.adresse, {row_attr: {class: 'register-field'}}) }}
+                {{ form_row(form.codePostal, {row_attr: {class: 'register-field'}}) }}
+                {{ form_row(form.ville, {row_attr: {class: 'register-field'}}) }}
+                {{ form_row(form.pays, {row_attr: {class: 'register-field'}}) }}
                 {{ form_row(form.submit, {row_attr: {class: 'register-submit'}}) }}
                 {{ form_end(form) }}
             </div>

@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Client;
 use App\Entity\Utilisateur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -13,7 +14,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class InscriptionFormType extends AbstractType
+class InscriptionClientType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -32,6 +33,12 @@ class InscriptionFormType extends AbstractType
                     ),
                 ],
             ])
+            ->add('raisonSociale', TextType::class)
+            ->add('telephone', TextType::class)
+            ->add('adresse', TextType::class)
+            ->add('codePostal', TextType::class)
+            ->add('ville', TextType::class)
+            ->add('pays', TextType::class)
             ->add('submit', SubmitType::class, [
                 'label' => 'S\'inscrire',
             ]);
@@ -40,7 +47,7 @@ class InscriptionFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Utilisateur::class,
+            'data_class' => Client::class,
         ]);
     }
 }
