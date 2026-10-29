@@ -1507,6 +1507,10 @@ h2 {
     padding: 38px 36px 29px;
 }
 
+.login-card-heading .accountant-register-title {
+    font-size: 24px;
+}
+
 .signup-choice-card {
     padding: 38px 36px 29px;
 }
@@ -1526,22 +1530,46 @@ h2 {
 }
 
 .signup-choice-submit {
+    display: flex;
     width: 100%;
     min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
     margin-bottom: 22px;
     border: 0;
-    border-radius: 6px;
+    border-radius: 8px;
     background: #267854;
     color: #fff;
     font: inherit;
     font-size: 13px;
     font-weight: 700;
+    text-decoration: none;
     cursor: pointer;
-    transition: background-color 160ms ease;
+    box-shadow: 0 5px 12px rgba(38, 120, 84, 0.18);
+    transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
 .signup-choice-submit:hover {
     background: #1e6445;
+    box-shadow: 0 7px 16px rgba(30, 100, 69, 0.24);
+    transform: translateY(-1px);
+}
+
+.signup-choice-submit::after {
+    content: "→";
+    font-size: 17px;
+    line-height: 1;
+}
+
+.signup-choice-submit:focus-visible {
+    outline: 3px solid rgba(38, 120, 84, 0.35);
+    outline-offset: 3px;
+}
+
+.signup-choice-submit:active {
+    box-shadow: 0 2px 6px rgba(38, 120, 84, 0.18);
+    transform: translateY(0);
 }
 
 .signup-choice {
