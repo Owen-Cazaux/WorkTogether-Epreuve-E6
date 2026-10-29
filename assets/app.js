@@ -7,15 +7,27 @@ import './stimulus_bootstrap.js';
  */
 import './styles/app.css';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+// Fonction permettant de modifier le path donné par le bouton en fonction de la sélection comptable ou client lors de l'inscription
+function updateSignupUrl() {
+    const continueSignin = document.getElementById('continue-signin');
+    const client = document.getElementById('client');
 
-const continuesignin = document.getElementById('continue-signin');
-continuesignin.addEventListener('click', function() {
-    const client = document.getElementById('client')
+    if (!continueSignin || !client) {
+        return;
+    }
 
     if (client.checked) {
-        continuesignin.href = continuesignin.dataset.clientUrl;
+        continueSignin.href = continueSignin.dataset.clientUrl;
     } else {
-        continuesignin.href = continuesignin.dataset.comptableUrl;
+        continueSignin.href = continueSignin.dataset.comptableUrl;
+    }
+}
+//écoute tous les changements sur le radio et applique la fonction updateSignupUrl qui modifie le path du href du bouton
+document.addEventListener('change', (event) => {
+    if (event.target instanceof HTMLInputElement && event.target.name === 'type_compte') {
+        updateSignupUrl();
     }
 });
+// relance de la fonction lorsque le site turboload la page, concrement lorsque qu'on revient en arrière après la sélection, sinon la fonction n'est plus active et n'écoute plus les changements et donc le bouton reste bloqué sur  un choix.
+document.addEventListener('turbo:load', updateSignupUrl);
+updateSignupUrl();
