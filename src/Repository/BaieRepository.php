@@ -21,9 +21,11 @@ class BaieRepository extends ServiceEntityRepository
     public function getBaieParUtilisateur($utilisateur): array
     {
         return $this->createQueryBuilder('b')
-            ->join('b.unites', 'e')
+            ->join('b.unites', 'u')
+            ->addSelect('u')
+            ->leftJoin('u.Etat', 'e')
             ->addSelect('e')
-            ->join('e.reservations', 'r')
+            ->join('u.reservations', 'r')
             ->addSelect('r')
             ->join('r.commande', 'c')
             ->addSelect('c')
