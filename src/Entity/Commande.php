@@ -72,12 +72,12 @@ class Commande
         return $this;
     }
 
-    public function getDateCommande(): ?\DateTime
+    public function getDateCommande(): ?\DateTimeImmutable
     {
         return $this->dateCommande;
     }
 
-    public function setDateCommande(\DateTime $dateCommande): static
+    public function setDateCommande(\DateTimeImmutable $dateCommande): static
     {
         $this->dateCommande = $dateCommande;
 

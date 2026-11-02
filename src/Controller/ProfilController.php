@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Client;
-use App\Repository\ClientRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -13,7 +12,7 @@ final class ProfilController extends AbstractController
 {
     #[Route('/profil', name: 'app_profil')]
     #[IsGranted('ROLE_USER')]
-    public function index(ClientRepository $clientRepository): Response
+    public function index(): Response
     {
         $utilisateur = $this->getUser();
 
