@@ -39,7 +39,7 @@
                         <p>{{ baie.unites|length }} unité(s) installée(s) sur {{ baie.nombreUnités }} emplacement(s).</p>
                         {% if baie.unites is not empty %}
                             {% if baie.unites|length > 5 %}
-                                <div class="inventory-unit-scroll" data-controller="unit-scrollbar">
+                                <div class="inventory-unit-scroll" data-conztroller="unit-scrollbar">
                             {% endif %}
                             <ul
                                 id="unites-baie-{{ baie.id }}"
