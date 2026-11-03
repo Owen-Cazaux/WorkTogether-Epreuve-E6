@@ -16,19 +16,4 @@ class UniteRepository extends ServiceEntityRepository
         parent::__construct($registry, Unite::class);
     }
 
-    public function getUnitesParUtilisateur($utilisateur) {
-        return $this->createQueryBuilder('u')
-            ->join('u.reservations', 'r')
-            ->addSelect('r')
-            ->join('r.commande', 'c')
-            ->addSelect('c')
-            ->join('c.client', 'cli')
-            ->addSelect('cli')
-            ->setParameter('utilisateur', $utilisateur)
-            ->where('cli.id = :utilisateur')
-            ->orderBy('u.nom', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
-
 }

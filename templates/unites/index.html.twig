@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes unités — WorkTogether{% endblock %}
+{% block title %}Mes baies — WorkTogether{% endblock %}
 
 {% block body %}
     <header class="site-header">
@@ -11,8 +11,7 @@
             </a>
             <div class="nav-links">
                 <a href="{{ path('app_nos_offres') }}">Nos offres</a>
-                <a class="inventory-tab" href="{{ path('app_baies') }}">Mes baies</a>
-                <a class="inventory-tab inventory-tab-active" href="{{ path('app_unites') }}" aria-current="page">Mes unités</a>
+                <a class="inventory-tab" href="{{ path('app_unites') }}">Mes unités</a>
                 <a href="{{ path('app_profil') }}">Mon profil</a>
                 {% if app.user %}
                     <a class="nav-login" href="{{ logout_path() }}">Déconnexion</a>
@@ -25,35 +24,57 @@
 
     <main class="inventory-page section-shell">
         <p class="eyebrow">VOTRE INFRASTRUCTURE</p>
-        <h1>Mes unités</h1>
-        <p class="inventory-intro">Consultez les équipements et leur état actuel.</p>
+        <h1>Mes baies</h1>
+        <p class="inventory-intro">Retrouvez les baies et les unités qui y sont installées.</p>
 
-        {% if unites is empty %}
-            <p class="inventory-empty">Aucune unité n'est disponible pour le moment.</p>
+        {% if baies is empty %}
+            <p class="inventory-empty">Aucune baie n'est disponible pour le moment.</p>
         {% else %}
-            <div class="inventory-table-wrapper">
-                <table class="inventory-table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Unité</th>
-                            <th scope="col">Baie</th>
-                            <th scope="col">État</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for unite in unites %}
-                            <tr>
-                                <td>{{ unite.nom }}</td>
-                                <td>{{ unite.baie ? unite.baie.numero : 'Non affectée' }}</td>
-                                <td>
-                                    <span class="badge{% if unite.etat and unite.etat.libelle == 'Disponible' %} badge-disponible{% elseif unite.etat and unite.etat.libelle == 'Maintenance' %} badge-maintenance{% elseif unite.etat and unite.etat.libelle == 'Hors service' %} badge-hors-service{% endif %}">
-                                        {{ unite.etat ? unite.etat.libelle : 'Non renseigné' }}
-                                    </span>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+            <div class="inventory-grid">
+                {% for baie in baies %}
+                    <article class="inventory-card">
+                        <p class="inventory-card-label">BAIE</p>
+                        <h2>{{ baie.numero }}</h2>
+                        <p>{{ baie.unites|length }} unité(s) installée(s) sur {{ baie.nombreUnités }} emplacement(s).</p>
+                        {% if baie.unites is not empty %}
+                            {% if baie.unites|length > 5 %}
+                                <div class="inventory-unit-scroll" data-conztroller="unit-scrollbar">
+                            {% endif %}
+                            <ul
+                                id="unites-baie-{{ baie.id }}"
+                                class="inventory-unit-list{% if baie.unites|length > 5 %} inventory-unit-list-scrollable{% endif %}"
+                                {% if baie.unites|length > 5 %}data-unit-scrollbar-target="content"{% endif %}
+                            >
+                                {% for unite in baie.unites %}
+                                    <li class="unite-etat">
+                                        <p>{{ unite.nom }}</p>
+                                        <span class="unite-separator" aria-hidden="true"></span>
+                                        <span class="badge{% if unite.etat and unite.etat.libelle == 'Disponible' %} badge-disponible{% elseif unite.etat and unite.etat.libelle == 'Maintenance' %} badge-maintenance{% elseif unite.etat and unite.etat.libelle == 'Hors service' %} badge-hors-service{% endif %}">
+                                            {{ unite.etat ? unite.etat.libelle : 'Non renseigné' }}
+                                        </span>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                            {% if baie.unites|length > 5 %}
+                                    <div
+                                        class="inventory-scrollbar"
+                                        data-unit-scrollbar-target="track"
+                                        role="scrollbar"
+                                        aria-label="Défilement des unités de la baie {{ baie.numero }}"
+                                        aria-controls="unites-baie-{{ baie.id }}"
+                                        aria-orientation="vertical"
+                                        aria-valuemin="0"
+                                        aria-valuemax="100"
+                                        aria-valuenow="0"
+                                        tabindex="0"
+                                    >
+                                        <span class="inventory-scrollbar-thumb" data-unit-scrollbar-target="thumb"></span>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    </article>
+                {% endfor %}
             </div>
         {% endif %}
     </main>

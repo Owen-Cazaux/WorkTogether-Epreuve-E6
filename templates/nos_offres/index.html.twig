@@ -12,7 +12,6 @@
             <div class="nav-links">
                 <a class="inventory-tab inventory-tab-active" href="{{ path('app_nos_offres') }}" aria-current="page">Nos offres</a>
                 {% if app.user %}
-                    <a class="inventory-tab" href="{{ path('app_baies') }}">Mes baies</a>
                     <a class="inventory-tab" href="{{ path('app_unites') }}">Mes unités</a>
                     <a href="{{ path('app_profil') }}">Mon profil</a>
                     <a class="nav-login" href="{{ logout_path() }}">Déconnexion</a>
