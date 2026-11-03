@@ -823,21 +823,40 @@ a {
 
 .inventory-unit-scroll {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 8px;
+    grid-template-columns: minmax(0, 1fr);
     align-items: stretch;
     gap: 10px;
     margin-top: 18px;
 }
 
 .inventory-unit-list-scrollable {
-    max-height: 247px;
     margin-top: 0;
-    overflow-y: auto;
-    overscroll-behavior-y: contain;
-    scrollbar-width: none;
 }
 
-.inventory-unit-list-scrollable::-webkit-scrollbar {
+.inventory-unit-list-scrollable:has(> li:nth-child(7)) {
+    max-height: 250px;
+    overflow-y: scroll;
+    overscroll-behavior-y: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #87998c #f0f3f0;
+}
+
+.inventory-unit-list-scrollable:has(> li:nth-child(7))::-webkit-scrollbar {
+    width: 8px;
+}
+
+.inventory-unit-list-scrollable:has(> li:nth-child(7))::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background: #f0f3f0;
+}
+
+.inventory-unit-list-scrollable:has(> li:nth-child(7))::-webkit-scrollbar-thumb {
+    border: 1px solid #f0f3f0;
+    border-radius: 4px;
+    background: #87998c;
+}
+
+.inventory-scrollbar {
     display: none;
 }
 
