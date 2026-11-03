@@ -17,13 +17,15 @@
         </nav>
     </header>
 
-    <main class="profile-page section-shell">
+
+    <main  class="profile-page section-shell">
         <div class="profile-intro">
             <p class="eyebrow">VOTRE ESPACE WORKTOGETHER</p>
             <h1>Mon profil</h1>
             <p class="inventory-intro">Consultez les informations associées à votre compte.</p>
         </div>
 
+        <script src="{{ asset('js/cacher.js') }}" defer></script>
         <section class="profile-card" aria-labelledby="profile-card-title">
             <div class="profile-card-heading">
                 <span class="profile-avatar" aria-hidden="true">{{ utilisateur.prenom|first }}{{ utilisateur.nom|first }}</span>
@@ -36,7 +38,7 @@
             <dl class="profile-details">
                 <div class="profile-detail">
                     <dt>Prénom</dt>
-                            <dd>{{ utilisateur.prenom }}</dd>
+                        <dd>{{ utilisateur.prenom }}</dd>
                 </div>
                 <div class="profile-detail">
                     <dt>Nom</dt>
@@ -79,9 +81,69 @@
             </dl>
 
             <div class="profile-card-actions">
-                <button class="button button-primary" type="button">Modifier mon profil</button>
-                <span>La modification du profil sera bientôt disponible.</span>
+                <button id="edit-button" class="button button-primary" type="button">Modifier mon profil</button>
             </div>
+        </section>
+
+        <section class="profile-card hidden" aria-labelledby="profile-card-title">
+            <div class="profile-card-heading">
+                <span class="profile-avatar" aria-hidden="true">{{ utilisateur.prenom|first }}{{ utilisateur.nom|first }}</span>
+                <div>
+                    <p class="inventory-card-label">INFORMATIONS PERSONNELLES</p>
+                    <h2 id="profile-card-title">{{ utilisateur.prenom}} {{ utilisateur.nom }}</h2>
+                </div>
+            </div>
+
+            <dl class="profile-details">
+                <div class="profile-detail">
+                    <label for="profile-first-name">Prénom</label>
+                    <input id="profile-first-name" type="text" value="{{ utilisateur.prenom}}">
+                </div>
+                <div class="profile-detail">
+                    <label for="profile-last-name">Nom</label>
+                    <input id="profile-last-name" type="text" value="{{ utilisateur.nom }}">
+                </div>
+                <div class="profile-detail">
+                    <label for="profile-email">Email</label>
+                    <input id="profile-email" type="text" value="{{ utilisateur.email }}">
+                </div>
+                {% if utilisateur.roles == ["ROLE_CLIENT", "ROLE_USER"] %}
+                    <div class="profile-detail">
+                        <label for="profile-phone">Téléphone</label>
+                        <input id="profile-phone" type="text" value="{{ utilisateur.telephone }}">
+                    </div>
+                    <div class="profile-detail">
+                        <label for="profile-password">Mot de passe</label>
+                        <input id="profile-password" type="text">
+                    </div>
+                    <div class="profile-detail">
+                        <label for="profile-address">Adresse</label>
+                        <input id="profile-address" type="text" value="{{ utilisateur.adresse }}">
+                    </div>
+                    <div class="profile-detail">
+                        <label for="profile-postal-code">Code postal</label>
+                        <input id="profile-postal-code" type="text" value="{{ utilisateur.codePostal }}">
+                    </div>
+                    <div class="profile-detail">
+                        <label for="profile-city">Ville</label>
+                        <input id="profile-city" type="text" value="{{ utilisateur.ville}}">
+                    </div>
+                    <div class="profile-detail">
+                        <label for="profile-country">Pays</label>
+                        <input id="profile-country" type="text" value="{{ utilisateur.pays}}">
+                    </div>
+                {% endif %}
+                <div class="profile-detail">
+                    <dt>Membre depuis</dt>
+                    <dd>{{ utilisateur.dateCreation|date('d/m/Y') }}</dd>
+                </div>
+
+                <div class="profile-card-actions">
+                    <button id="valid-button" class="button button-primary" type="button">Valider</button>
+                </div>
+            </dl>
+
+
         </section>
     </main>
 {% endblock %}

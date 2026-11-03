@@ -6,6 +6,7 @@ import './stimulus_bootstrap.js';
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
+import './hidden.js'
 
 // Fonction permettant de modifier le path donné par le bouton en fonction de la sélection comptable ou client lors de l'inscription
 function updateSignupUrl() {
