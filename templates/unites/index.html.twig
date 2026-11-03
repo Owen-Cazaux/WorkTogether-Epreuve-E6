@@ -37,13 +37,13 @@
                         <h2>{{ baie.numero }}</h2>
                         <p>{{ baie.unites|length }} unité(s) installée(s) sur {{ baie.nombreUnités }} emplacement(s).</p>
                         {% if baie.unites is not empty %}
-                            {% if baie.unites|length > 5 %}
-                                <div class="inventory-unit-scroll" data-conztroller="unit-scrollbar">
+                            {% if baie.unites|length > 6 %}
+                                <div class="inventory-unit-scroll" data-controller="unit-scrollbar">
                             {% endif %}
                             <ul
                                 id="unites-baie-{{ baie.id }}"
-                                class="inventory-unit-list{% if baie.unites|length > 5 %} inventory-unit-list-scrollable{% endif %}"
-                                {% if baie.unites|length > 5 %}data-unit-scrollbar-target="content"{% endif %}
+                                class="inventory-unit-list{% if baie.unites|length > 6 %} inventory-unit-list-scrollable{% endif %}"
+                                {% if baie.unites|length > 6 %}data-unit-scrollbar-target="content"{% endif %}
                             >
                                 {% for unite in baie.unites %}
                                     <li class="unite-etat">
@@ -55,7 +55,7 @@
                                     </li>
                                 {% endfor %}
                             </ul>
-                            {% if baie.unites|length > 5 %}
+                            {% if baie.unites|length > 6 %}
                                     <div
                                         class="inventory-scrollbar"
                                         data-unit-scrollbar-target="track"
