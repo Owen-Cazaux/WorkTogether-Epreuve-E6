@@ -1,10 +1,11 @@
-const button = document.querySelector('#edit-button');
-const boxs = document.querySelectorAll('.profile-card');
 
-button?.addEventListener('click', () => {
-    for (const box of boxs)
-    {
-        box.classList.toggle('hidden');
-        console.log('bouton appuyé')
-    }  
+
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('#edit-button')) {
+        return;
+    }
+
+    document.querySelectorAll('.profile-card').forEach((card) => {
+        card.classList.toggle('hidden');
+    });
 });
