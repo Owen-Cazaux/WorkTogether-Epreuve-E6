@@ -14,7 +14,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class EditProfilType extends AbstractType
+class EditProfilClientType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
