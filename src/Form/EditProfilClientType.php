@@ -40,7 +40,7 @@ class EditProfilClientType extends AbstractType
             ->add('ville', TextType::class)
             ->add('pays', TextType::class)
             ->add('submit', SubmitType::class, [
-                'label' => 'S\'inscrire',
+                'label' => 'Enregistrer les modifications',
             ]);
     }
 

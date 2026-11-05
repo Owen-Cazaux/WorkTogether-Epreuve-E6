@@ -85,65 +85,27 @@
             </div>
         </section>
 
-        <section class="profile-card hidden" aria-labelledby="profile-card-title">
+        <section class="profile-card profile-edit-card hidden" aria-labelledby="profile-edit-title">
             <div class="profile-card-heading">
                 <span class="profile-avatar" aria-hidden="true">{{ utilisateur.prenom|first }}{{ utilisateur.nom|first }}</span>
                 <div>
                     <p class="inventory-card-label">INFORMATIONS PERSONNELLES</p>
-                    <h2 id="profile-card-title">{{ utilisateur.prenom}} {{ utilisateur.nom }}</h2>
+                    <h2 id="profile-edit-title">Modifier mon profil</h2>
                 </div>
             </div>
-
-            <dl class="profile-details">
-                <div class="profile-detail">
-                    <label for="profile-first-name">Prénom</label>
-                    <input id="profile-first-name" type="text" value="{{ utilisateur.prenom}}">
-                </div>
-                <div class="profile-detail">
-                    <label for="profile-last-name">Nom</label>
-                    <input id="profile-last-name" type="text" value="{{ utilisateur.nom }}">
-                </div>
-                <div class="profile-detail">
-                    <label for="profile-email">Email</label>
-                    <input id="profile-email" type="text" value="{{ utilisateur.email }}">
-                </div>
-                {% if utilisateur.roles == ["ROLE_CLIENT", "ROLE_USER"] %}
-                    <div class="profile-detail">
-                        <label for="profile-phone">Téléphone</label>
-                        <input id="profile-phone" type="text" value="{{ utilisateur.telephone }}">
-                    </div>
-                    <div class="profile-detail">
-                        <label for="profile-password">Mot de passe</label>
-                        <input id="profile-password" type="text">
-                    </div>
-                    <div class="profile-detail">
-                        <label for="profile-address">Adresse</label>
-                        <input id="profile-address" type="text" value="{{ utilisateur.adresse }}">
-                    </div>
-                    <div class="profile-detail">
-                        <label for="profile-postal-code">Code postal</label>
-                        <input id="profile-postal-code" type="text" value="{{ utilisateur.codePostal }}">
-                    </div>
-                    <div class="profile-detail">
-                        <label for="profile-city">Ville</label>
-                        <input id="profile-city" type="text" value="{{ utilisateur.ville}}">
-                    </div>
-                    <div class="profile-detail">
-                        <label for="profile-country">Pays</label>
-                        <input id="profile-country" type="text" value="{{ utilisateur.pays}}">
-                    </div>
-                {% endif %}
-                <div class="profile-detail">
-                    <dt>Membre depuis</dt>
-                    <dd>{{ utilisateur.dateCreation|date('d/m/Y') }}</dd>
-                </div>
-
-                <div class="profile-card-actions">
-                    <button id="valid-button" class="button button-primary" type="button">Valider</button>
-                </div>
-            </dl>
-
-
+            {{ form_start(form, {attr: {class: 'login-form register-form profile-edit-form'}}) }}
+            {{ form_row(form.nom, {row_attr: {class: 'register-field'}}) }}
+            {{ form_row(form.prenom, {row_attr: {class: 'register-field'}}) }}
+            {{ form_row(form.email, {row_attr: {class: 'register-field register-field-wide'}}) }}
+            {{ form_row(form.motDePasse, {row_attr: {class: 'register-field register-field-wide'}}) }}
+            {{ form_row(form.raisonSociale, {row_attr: {class: 'register-field'}}) }}
+            {{ form_row(form.telephone, {row_attr: {class: 'register-field'}}) }}
+            {{ form_row(form.adresse, {row_attr: {class: 'register-field'}}) }}
+            {{ form_row(form.codePostal, {row_attr: {class: 'register-field'}}) }}
+            {{ form_row(form.ville, {row_attr: {class: 'register-field'}}) }}
+            {{ form_row(form.pays, {row_attr: {class: 'register-field'}}) }}
+            {{ form_row(form.submit, {row_attr: {class: 'register-submit'}}) }}
+            {{ form_end(form) }}
         </section>
     </main>
 {% endblock %}
