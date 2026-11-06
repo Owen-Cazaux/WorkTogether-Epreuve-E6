@@ -3,7 +3,6 @@
 namespace App\Form;
 
 use App\Entity\Client;
-use App\Entity\Utilisateur;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -47,7 +46,7 @@ class EditProfilClientType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'data_class' => Client::class,
         ]);
     }
 }
