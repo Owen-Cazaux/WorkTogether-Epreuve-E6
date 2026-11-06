@@ -45,15 +45,15 @@ final class ProfilController extends AbstractController
             $comptable = $utilisateur;
             $form = $this->createForm(EditProfilComptableType::class, $comptable);
             $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid()) {
-                $password = $form->get('motDePasse')->getData();
-                if (!is_string($password)) {
-                    throw new \LogicException('Le mot de passe soumis doit être une chaîne de caractères.');
-                }
-                $comptable->setPassword($passwordHasher->hashPassword($comptable, $password));
-                $em->persist($comptable);
-                $em->flush();
-                return $this->redirectToRoute('app_profil');
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $password = $form->get('motDePasse')->getData();
+                    if (!is_string($password)) {
+                        throw new \LogicException('Le mot de passe soumis doit être une chaîne de caractères.');
+                    }
+                    $comptable->setPassword($passwordHasher->hashPassword($comptable, $password));
+                    $em->persist($comptable);
+                    $em->flush();
+                    return $this->redirectToRoute('app_profil');
             }
 
         }
