@@ -79,10 +79,15 @@
                     <dd>{{ utilisateur.dateCreation|date('d/m/Y') }}</dd>
                 </div>
             </dl>
-
-            <div class="profile-card-actions">
-                <button id="edit-button" class="button button-primary" type="button">Modifier mon profil</button>
+            <div class="button-assembly">
+                <div class="profile-card-actions">
+                    <button id="edit-button" class="button button-primary" type="button">Modifier mon profil</button>
+                </div>
+                <div class="profile-card-actions">
+                    <button id="edit-mdp-button" class="button button-primary" type="button">Modifier mon mot de passe</button>
+                </div>
             </div>
+
         </section>
 
         <section class="profile-card profile-edit-card hidden" aria-labelledby="profile-edit-title">
@@ -99,7 +104,6 @@
                 {{ form_row(form.nom, {row_attr: {class: 'register-field'}}) }}
                 {{ form_row(form.email, {row_attr: {class: 'register-field register-field-wide'}}) }}
                 {{ form_row(form.telephone, {row_attr: {class: 'register-field'}}) }}
-                {{ form_row(form.motDePasse, {row_attr: {class: 'register-field register-field-wide'}}) }}
                 {{ form_row(form.adresse, {row_attr: {class: 'register-field'}}) }}
                 {{ form_row(form.codePostal, {row_attr: {class: 'register-field'}}) }}
                 {{ form_row(form.ville, {row_attr: {class: 'register-field'}}) }}
@@ -114,7 +118,6 @@
                 {{ form_row(form.prenom, {row_attr: {class: 'register-field'}}) }}
                 {{ form_row(form.nom, {row_attr: {class: 'register-field'}}) }}
                 {{ form_row(form.email, {row_attr: {class: 'register-field register-field-wide'}}) }}
-                {{ form_row(form.motDePasse, {row_attr: {class: 'register-field register-field-wide'}}) }}
                 {{ form_row(form.submit, {row_attr: {class: 'register-submit'}}) }}
                 {{ form_end(form) }}
             {% endif %}

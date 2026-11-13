@@ -21,17 +21,6 @@ class EditProfilComptableType extends AbstractType
             ->add('nom', TextType::class)
             ->add('prenom', TextType::class)
             ->add('email', EmailType::class)
-            ->add('motDePasse', PasswordType::class, [
-                'mapped' => false,
-                'label' => 'Mot de passe',
-                'constraints' => [
-                    new NotBlank(message: 'Veuillez choisir un mot de passe.'),
-                    new Length(
-                        min: 8,
-                        minMessage: 'Votre mot de passe doit contenir au moins {{ limit }} caractères.',
-                    ),
-                ],
-            ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer les modifications',
             ]);

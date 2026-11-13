@@ -751,6 +751,7 @@ a {
 
 .profile-edit-form .register-submit {
     grid-column: 1 / -1;
+    width: 200px;
 }
 
 .profile-card .profile-edit-form .register-field input {
@@ -870,6 +871,12 @@ a {
         justify-self: stretch;
         max-width: none;
     }
+}
+.button-assembly {
+    display: flex;
+    flex-direction: row;
+    gap : 28px;
+
 }
 
 .inventory-grid {
