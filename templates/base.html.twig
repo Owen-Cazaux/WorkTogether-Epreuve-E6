@@ -20,6 +20,14 @@
     </head>
     <body>
         {% block body %}
+
         {% endblock %}
     </body>
+    <div class="flash-box">
+        {% for type, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="alert alert-{{ type }}">{{ message }}</div>
+            {% endfor %}
+        {% endfor %}
+    </div>
 </html>
