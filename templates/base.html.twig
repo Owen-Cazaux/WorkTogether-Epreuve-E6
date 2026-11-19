@@ -19,6 +19,14 @@
         {% endif %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            <div>
+                {% for type, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ type }}">{{ message }}</div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
+        {% endblock %}
     </body>
 </html>

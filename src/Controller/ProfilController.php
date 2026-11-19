@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Client;
+use App\Form\EditMdpType;
 use App\Form\EditProfilClientType;
 use App\Form\EditProfilComptableType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -25,6 +26,7 @@ final class ProfilController extends AbstractController
     {
         $utilisateur = $this->getUser();
         $role = $utilisateur->getRoles();
+
         if ($role == ['ROLE_CLIENT', 'ROLE_USER']) {
             $client = $utilisateur;
             $form = $this->createForm(EditProfilClientType::class, $client);

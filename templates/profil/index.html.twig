@@ -84,13 +84,17 @@
                     <button id="edit-button" class="button button-primary" type="button">Modifier mon profil</button>
                 </div>
                 <div class="profile-card-actions">
-                    <button id="edit-mdp-button" class="button button-primary" type="button">Modifier mon mot de passe</button>
+                    <a href=" {{ path('app_edit_mot_de_passe') }}">
+                        <button id="edit-mdp-button" class="button button-primary" type="button">
+                            Modifier mon mot de passe
+                        </button>
+                    </a>
                 </div>
             </div>
 
         </section>
 
-        <section class="profile-card profile-edit-card hidden" aria-labelledby="profile-edit-title">
+        <section class="profile-card profile-edit-card hidden-profile" aria-labelledby="profile-edit-title">
             <div class="profile-card-heading">
                 <span class="profile-avatar" aria-hidden="true">{{ utilisateur.prenom|first }}{{ utilisateur.nom|first }}</span>
                 <div>

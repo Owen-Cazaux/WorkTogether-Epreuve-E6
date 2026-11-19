@@ -23,9 +23,11 @@ final class InscriptionController extends AbstractController
         return $this->render('inscription/index.html.twig', []);
     }
     #[Route('/inscription/client', name: 'app_inscription_client')]
-    public function client(Request $request,
-                           EntityManagerInterface $em,
-                           UserPasswordHasherInterface $passwordHasher,) : Response {
+    public function client(
+        Request $request,
+        EntityManagerInterface $em,
+        UserPasswordHasherInterface $passwordHasher,) : Response {
+
         $client = new Client();
         $form = $this->createForm(InscriptionClientType::class, $client);
         $form->handleRequest($request);
