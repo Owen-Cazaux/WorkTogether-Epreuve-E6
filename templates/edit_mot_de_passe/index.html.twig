@@ -23,12 +23,10 @@
                 <h2 id="profile-edit-title">Modifier mon mot de passe</h2>
             </div>
         </div>
-        {{ form_start(form, {attr: {class: 'login-form register-form profile-edit-form'}}) }}
+        {{ form_start(form, {attr: {'data-turbo': 'false', class: 'login-form register-form profile-edit-form'}}) }}
         {{ form_row(form.motDePasseActuel, {row_attr: {class: 'register-field'}}) }}
-        {{ form_row(form.nouveauMotDePasse, {row_attr: {class:'register-field'}}) }}
+        {{ form_row(form.nouveauMotDePasse) }}
         {{ form_row(form.submit, {row_attr: {class: 'register-submit'}}) }}
         {{ form_end(form) }}
-
-
     </section>
 {% endblock %}

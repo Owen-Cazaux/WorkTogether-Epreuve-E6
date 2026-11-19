@@ -102,6 +102,13 @@
                     <h2 id="profile-edit-title">Modifier mon profil</h2>
                 </div>
             </div>
+            <div>
+                {% for type, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ type }}">{{ message }}</div>
+                    {% endfor %}
+                {% endfor %}
+            </div>
             {% if utilisateur.roles == ['ROLE_CLIENT', 'ROLE_USER'] %}
                 {{ form_start(form, {attr: {class: 'login-form register-form profile-edit-form'}}) }}
                 {{ form_row(form.prenom, {row_attr: {class: 'register-field'}}) }}

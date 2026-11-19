@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\Utilisateur;
 use App\Form\EditMdpType;
 use Doctrine\ORM\EntityManagerInterface;
+use phpDocumentor\Reflection\Utils;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,14 +21,15 @@ final class EditMotDePasseController extends AbstractController
         UserPasswordHasherInterface $passwordHasher,): Response {
 
         $utilisateur = $this->getUser();
+        if (!$utilisateur instanceof Utilisateur) {
+            throw $this->createAccessDeniedException();
+        }
         $form = $this->createForm(EditMdpType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $newPassword = $form->get('nouveauMotDePasse')->getData();
-
             $utilisateur->setPassword($passwordHasher->hashPassword($utilisateur, $newPassword));
-            $em->persist($utilisateur);
             $em->flush();
 
             $this->addFlash('success','Mot de passe modifié');

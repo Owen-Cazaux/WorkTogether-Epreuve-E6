@@ -19,7 +19,7 @@ class EditMdpType extends AbstractType
     {
         $builder
             ->add('motDePasseActuel', PasswordType::class, [
-                'label' => 'Mot de passe',
+                'label' => 'Mot de passe actuel',
                 'mapped' => false,
                 'constraints' => [
                     new NotBlank(),
@@ -29,8 +29,14 @@ class EditMdpType extends AbstractType
             ->add('nouveauMotDePasse', RepeatedType::class, [
                 'mapped' => false,
                 'label' => 'Mot de passe',
-                'first_options' => ['label' => 'Nouveau mot de passe'],
-                'second_options' => ['label' => 'Confirmer le mot de passe'],
+                'first_options' => [
+                    'label' => 'Nouveau mot de passe',
+                    'row_attr' => ['class' => 'register-field'],
+                ],
+                'second_options' => [
+                    'label' => 'Confirmer le mot de passe',
+                    'row_attr' => ['class' => 'register-field'],
+                ],
                 'invalid_message' => 'Les mots de passe ne correspondent pas.',
                 'constraints' => [
                     new NotBlank(message: 'Veuillez choisir un mot de passe.'),
