@@ -32,6 +32,18 @@
                     <p class="inventory-card-label">INFORMATIONS PERSONNELLES</p>
                             <h2 id="profile-card-title">{{ utilisateur.prenom}} {{ utilisateur.nom }}</h2>
                 </div>
+                <div class="button-assembly">
+                    <div class="profile-card-actions">
+                        <button id="edit-button" class="button button-primary" type="button">Modifier mon profil</button>
+                    </div>
+                    <div class="profile-card-actions">
+                        <a href=" {{ path('app_edit_mot_de_passe') }}">
+                            <button id="edit-mdp-button" class="button button-primary" type="button">
+                                Modifier mon mot de passe
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
 
 
@@ -79,18 +91,7 @@
                     <dd>{{ utilisateur.dateCreation|date('d/m/Y') }}</dd>
                 </div>
             </dl>
-            <div class="button-assembly">
-                <div class="profile-card-actions">
-                    <button id="edit-button" class="button button-primary" type="button">Modifier mon profil</button>
-                </div>
-                <div class="profile-card-actions">
-                    <a href=" {{ path('app_edit_mot_de_passe') }}">
-                        <button id="edit-mdp-button" class="button button-primary" type="button">
-                            Modifier mon mot de passe
-                        </button>
-                    </a>
-                </div>
-            </div>
+
 
         </section>
 

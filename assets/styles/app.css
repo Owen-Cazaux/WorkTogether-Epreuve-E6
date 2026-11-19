@@ -815,7 +815,7 @@ a {
 
 .profile-detail {
     min-width: 0;
-    padding: 15px 0;
+    padding: 8px 0;
     border-bottom: 1px solid #edf0ed;
 }
 
@@ -1220,9 +1220,9 @@ h1 span {
     align-items: center;
     justify-content: center;
     gap: 14px;
-    padding: 0 19px;
+    padding: 0 10px;
     border-radius: 7px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     transition: transform 160ms ease, background 160ms ease;
 }
