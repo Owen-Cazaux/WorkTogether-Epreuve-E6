@@ -16,16 +16,30 @@
             </div>
         </nav>
     </header>
-    <main>
+    <main class="inventory-page section-shell">
         <section>
             <h1>Historique des interventions</h1>
+            <p class="inventory-intro">{{ unite.nom }}</p>
         </section>
-        <div>
-            <h2>{{ unite.nom }}</h2>
-            <ul>
-                {% for intervention in interventions %}
-                <li>
+        <div class="inventory-card">
 
+            <ul class="liste-intervention">
+                {% for intervention in interventions %}
+                <li class="ligne-intervention">
+                    <ul class="donnés-intervention">
+                        <li>
+                            {{ intervention.type }}
+                        </li>
+                        <li>
+                            {{ intervention.description }}
+                        </li>
+                        <li>
+                            {{ intervention.dateDebut|date('Y-m-d') }}
+                        </li>
+                        <li>
+                            {{ intervention.dateFin|date('Y-m-d') }}
+                        </li>
+                    </ul>
                 </li>
                 {% endfor %}
             </ul>
