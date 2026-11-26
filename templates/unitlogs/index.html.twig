@@ -3,17 +3,31 @@
 {% block title %}Historique des interventions{% endblock %}
 
 {% block body %}
+    <header class="site-header">
+        <nav class="navigation" aria-label="Navigation principale">
+            <a class="brand" href="{{ path('app_home') }}" aria-label="WorkTogether, accueil">
+                <span class="brand-mark" aria-hidden="true">W</span>
+                <span>WorkTogether</span>
+            </a>
+            <div class="nav-links">
+                <a href="{{ path('app_nos_offres') }}">Nos offres</a>
+                <a href="{{ path('app_unites') }}">Mes unités</a>
+                <a class="nav-login" href="{{ logout_path() }}">Déconnexion</a>
+            </div>
+        </nav>
+    </header>
     <main>
         <section>
             <h1>Historique des interventions</h1>
         </section>
         <div>
+            <h2>{{ unite.nom }}</h2>
             <ul>
-                {{ for }}
+                {% for intervention in interventions %}
                 <li>
-                    
+
                 </li>
-                {{ endfor }}
+                {% endfor %}
             </ul>
         </div>
     </main>

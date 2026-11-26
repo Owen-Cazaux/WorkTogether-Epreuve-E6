@@ -22,7 +22,7 @@ class InterventionRepository extends ServiceEntityRepository
            ->join('i.unite', 'u')
            ->addSelect('u')
            ->setParameter('unite', $unite)
-           ->where('unite.id = :unite')
+           ->where('u.id = :unite')
            ->getQuery()
            ->getResult();
     }
