@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\UniteRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: UniteRepository::class)]
 class Unite
@@ -12,6 +14,10 @@ class Unite
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+
+    /** @var Collection<int, Intervention> */
+    #[ORM\ManyToMany(targetEntity: Intervention::class, inversedBy: 'unite')]
+    private Collection $intervention;
 
     #[ORM\ManyToOne(inversedBy: 'unites')]
     private ?Etat $Etat = null;
@@ -25,6 +31,10 @@ class Unite
     #[ORM\ManyToOne(inversedBy: 'unite')]
     private ?Reservations $reservations = null;
 
+    public function __construct()
+    {
+        $this->intervention = new ArrayCollection();
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -34,6 +44,25 @@ class Unite
     {
         $this->id = $id;
 
+        return $this;
+    }
+
+    public function getIntervention(): Collection
+    {
+        return $this->intervention;
+    }
+
+    public function addIntervention(Intervention $intervention): static
+    {
+        if (!$this->intervention->contains($intervention)) {
+            $this->intervention->add($intervention);
+        }
+        return $this;
+    }
+
+    public function removeIntervention(Intervention $intervention): static
+    {
+        $this->intervention->removeElement($intervention);
         return $this;
     }
 

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\InterventionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: InterventionRepository::class)]
@@ -16,6 +18,10 @@ class Intervention
     #[ORM\ManyToOne(inversedBy: 'interventions')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Technicien $technicien = null;
+
+    /** @var Collection<int, Unite> */
+    #[ORM\ManyToMany(targetEntity: Unite::class, mappedBy: 'intervention')]
+    private Collection $unite;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $type = null;
@@ -41,6 +47,29 @@ class Intervention
         return $this;
     }
 
+    public function __construct()
+    {
+        $this->unite = new ArrayCollection();
+    }
+
+    public function getUnite(): Collection
+    {
+        return $this->unite;
+    }
+
+    public function addUnite(Unite $unite): static
+    {
+        if (!$this->unite->contains($unite)) {
+            $this->unite->add($unite);
+        }
+        return $this;
+    }
+
+    public function removeUnite(Unite $unite): static
+    {
+        $this->unite->removeElement($unite);
+        return $this;
+    }
     public function getTechnicien(): ?Technicien
     {
         return $this->technicien;
