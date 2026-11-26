@@ -50,7 +50,7 @@
                                         <p>{{ unite.nom }}</p>
                                         <span class="unite-separator" aria-hidden="true"></span>
                                         <div class="button-small button-light">
-                                            <a href="">Historique</a>
+                                            <a href="{{ path('app_unitlogs',  { unite: unite.id }) }}">Historique</a>
                                         </div>
                                         <span class="unite-separator" aria-hidden="true"></span>
                                         <button class="button-small button-primary">
